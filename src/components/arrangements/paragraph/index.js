@@ -16,6 +16,7 @@ const El = styled.p`
 		css`
 			font-size: 1.8rem;
 			line-height: 2.4rem;
+			padding-bottom: var(--spacing-double);
 		`}
 
 	${(props) =>

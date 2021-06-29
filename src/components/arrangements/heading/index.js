@@ -5,7 +5,7 @@ const Heading = (props) => {
 	const tag = `h${props.level}`;
 
 	return (
-		<El as={tag} {...props}>
+		<El as={tag} {...props} data-testid='123abc'>
 			{props.text}
 		</El>
 	);
@@ -22,9 +22,7 @@ const El = styled.div`
 		css`
 			font-size: 4.2rem;
 			line-height: 4.8rem;
-			padding-bottom: var(
-				#{--spacing-double}
-			); //You must interpolate with this much nesting
+			padding-bottom: var(--spacing-double);
 		`}
 
 	${(props) =>

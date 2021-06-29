@@ -23,32 +23,54 @@ export default {
 const Template1 = (args) => <Heading {...args} />;
 
 const Template2 = (args) => {
-	let paragraphLevel;
+	return (
+		<>
+			<Heading level='1' text='Heading level 1' />
+			<Heading level='2' text='Heading level 2' />
+			<Heading level='3' text='Heading level 3' />
+			<Heading level='4' text='Heading level 4' />
+			<Heading level='5' text='Heading level 5' />
+		</>
+	);
+};
+
+const Template3 = (args) => {
+	let paragraphLevel, paragraphText;
 
 	switch (
 		args.level //Map Heading to paragraph pairing
 	) {
 		case "2":
 			paragraphLevel = "2";
+			paragraphText =
+				"Heading 2 is paired with Paragraph level 2. dolor sit amet, consectetur adipiscing elit. In in justo maximus, tincidunt purus sed, tincidunt massa. Nunc fermentum tincidunt hendrerit. Etiam eget est eget velit tincidunt vulputate. Mauris malesuada nulla nibh, vel convallis diam pellentesque vitae. Cras aliquet fermentum ligula in molestie. Aliquam laoreet felis pharetra, dapibus massa quis.";
 			break;
 		case "3":
 			paragraphLevel = "2";
+			paragraphText =
+				"Heading 3 is paired with Paragraph level 2. dolor sit amet, consectetur adipiscing elit. In in justo maximus, tincidunt purus sed, tincidunt massa. Nunc fermentum tincidunt hendrerit. Etiam eget est eget velit tincidunt vulputate. Mauris malesuada nulla nibh, vel convallis diam pellentesque vitae. Cras aliquet fermentum ligula in molestie. Aliquam laoreet felis pharetra, dapibus massa quis.";
 			break;
 		case "4":
 			paragraphLevel = "3";
+			paragraphText =
+				"Heading 4 is paired with Paragraph level 3. dolor sit amet, consectetur adipiscing elit. In in justo maximus, tincidunt purus sed, tincidunt massa. Nunc fermentum tincidunt hendrerit. Etiam eget est eget velit tincidunt vulputate. Mauris malesuada nulla nibh, vel convallis diam pellentesque vitae. Cras aliquet fermentum ligula in molestie. Aliquam laoreet felis pharetra, dapibus massa quis.";
 			break;
 		case "5":
 			paragraphLevel = "3";
+			paragraphText =
+				"Heading 5 is paired with Paragraph level 3. dolor sit amet, consectetur adipiscing elit. In in justo maximus, tincidunt purus sed, tincidunt massa. Nunc fermentum tincidunt hendrerit. Etiam eget est eget velit tincidunt vulputate. Mauris malesuada nulla nibh, vel convallis diam pellentesque vitae. Cras aliquet fermentum ligula in molestie. Aliquam laoreet felis pharetra, dapibus massa quis.";
 			break;
 		default:
 			paragraphLevel = "1";
+			paragraphText =
+				"Heading 1 is paired with Paragraph level 1. dolor sit amet, consectetur adipiscing elit. In in justo maximus, tincidunt purus sed, tincidunt massa. Nunc fermentum tincidunt hendrerit. Etiam eget est eget velit tincidunt vulputate. Mauris malesuada nulla nibh, vel convallis diam pellentesque vitae. Cras aliquet fermentum ligula in molestie. Aliquam laoreet felis pharetra, dapibus massa quis.";
 			break;
 	}
 
 	return (
 		<>
-			<Heading level={args.level} text={args.headingtext} />
-			<Paragraph level={paragraphLevel} text={args.paragraphtext} />
+			<Heading level={args.level} text={`Heading level ${args.level}`} />
+			<Paragraph level={paragraphLevel} text={paragraphText} />
 		</>
 	);
 };
@@ -58,9 +80,9 @@ Standalone.args = {
 	text: "The quick brown fox jumps over the lazy dog",
 };
 
-export const Pairings = Template2.bind({});
-Pairings.args = {
-	headingtext: "The quick brown fox jumps over the lazy dog",
-	paragraphtext:
-		"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor faucibus sapien eu consequat. Nulla semper lorem eget mauris congue maximus. Integer pulvinar massa et lectus rutrum rhoncus. Maecenas a ipsum a ex malesuada aliquet. Ut tempus cursus auctor. Mauris vitae congue purus. Fusce hendrerit volutpat metus, ac cursus arcu pharetra eu. Praesent malesuada libero non volutpat euismod. Nullam ultrices elit ac nunc porta placerat.",
+export const AllHeadings = Template2.bind({});
+AllHeadings.args = {
+	text: "The quick brown fox jumps over the lazy dog",
 };
+
+export const Pairings = Template3.bind({});
