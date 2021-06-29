@@ -1,56 +1,59 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const Heading = ({ level, alignment, children }) => {
-	const tag = `h${level}`;
+const Heading = (props) => {
+	const tag = `h${props.level}`;
 
-	return <El as={tag}>{children}</El>;
+	return (
+		<El as={tag} {...props}>
+			{props.text}
+		</El>
+	);
 };
 
 const El = styled.div`
-	font-family: "Roboto, Arial, sans-serif";
-	color: "black";
-	text-align: ${({ alignment }) => alignment || "left"};
-	${(level) =>
-		(level =
-			"1" &&
-			css`
-				font-size: 4.2rem;
-				line-height: 4.8rem;
-				margin-bottom: $spacing-double;
-			`)}
-	${(level) =>
-		(level =
-			"2" &&
-			css`
-				font-size: 3.6rem;
-				line-height: 4rem;
-				margin-bottom: $spacing-full;
-			`)}
-		${(level) =>
-		(level =
-			"3" &&
-			css`
-				font-size: 2.8rem;
-				line-height: 3.4rem;
-				margin-bottom: $spacing-full;
-			`)}
-		${(level) =>
-		(level =
-			"4" &&
-			css`
-				font-size: 2.4rem;
-				line-height: 2.9rem;
-				margin-bottom: $spacing-full;
-			`)}
-		${(level) =>
-		(level =
-			"5" &&
-			css`
-				font-size: 2rem;
-				line-height: 2.4rem;
-				margin-bottom: $spacing-full;
-			`)};
+	font-family: var(--heading-font);
+	color: var(--text-color-1);
+	padding-bottom: var(--spacing-full);
+	text-align: ${(props) => props.alignment};
+
+	${(props) =>
+		props.level === "1" &&
+		css`
+			font-size: 4.2rem;
+			line-height: 4.8rem;
+			padding-bottom: var(
+				#{--spacing-double}
+			); //You must interpolate with this much nesting
+		`}
+
+	${(props) =>
+		props.level === "2" &&
+		css`
+			font-size: 3.6rem;
+			line-height: 4rem;
+		`}
+
+	${(props) =>
+		props.level === "3" &&
+		css`
+			font-size: 2.8rem;
+			line-height: 3.4rem;
+		`}
+
+	${(props) =>
+		props.level === "4" &&
+		css`
+			font-size: 2.4rem;
+			line-height: 2.9rem;
+		`}
+
+	${(props) =>
+		props.level === "5" &&
+		css`
+			font-size: 2rem;
+			line-height: 2.4rem;
+		`};
 `;
 
 export default Heading;
