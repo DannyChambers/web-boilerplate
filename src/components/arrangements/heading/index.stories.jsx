@@ -25,11 +25,31 @@ const Template1 = (args) => <Heading {...args} />;
 const Template2 = (args) => {
 	return (
 		<>
-			<Heading level='1' text='Heading level 1' />
-			<Heading level='2' text='Heading level 2' />
-			<Heading level='3' text='Heading level 3' />
-			<Heading level='4' text='Heading level 4' />
-			<Heading level='5' text='Heading level 5' />
+			<Heading
+				level='1'
+				alignment={args.alignment}
+				text='Heading level 1'
+			/>
+			<Heading
+				level='2'
+				alignment={args.alignment}
+				text='Heading level 2'
+			/>
+			<Heading
+				level='3'
+				alignment={args.alignment}
+				text='Heading level 3'
+			/>
+			<Heading
+				level='4'
+				alignment={args.alignment}
+				text='Heading level 4'
+			/>
+			<Heading
+				level='5'
+				alignment={args.alignment}
+				text='Heading level 5'
+			/>
 		</>
 	);
 };
@@ -69,7 +89,11 @@ const Template3 = (args) => {
 
 	return (
 		<>
-			<Heading level={args.level} text={`Heading level ${args.level}`} />
+			<Heading
+				level={args.level}
+				alignment={args.alignment}
+				text={`Heading level ${args.level}`}
+			/>
 			<Paragraph level={paragraphLevel} text={paragraphText} />
 		</>
 	);
