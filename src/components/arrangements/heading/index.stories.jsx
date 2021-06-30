@@ -6,18 +6,6 @@ import Paragraph from "../paragraph/index.js";
 export default {
 	title: "Components/Arrangements/Heading",
 	component: Heading,
-	argTypes: {
-		level: {
-			options: ["1", "2", "3", "4", "5"],
-			defaultValue: "1",
-			control: { type: "select" },
-		},
-		alignment: {
-			options: ["left", "right", "center"],
-			defaultValue: "left",
-			control: { type: "select" },
-		},
-	},
 };
 
 const Template1 = (args) => <Heading {...args} />;
@@ -100,13 +88,42 @@ const Template3 = (args) => {
 };
 
 export const Standalone = Template1.bind({});
+Standalone.argTypes = {
+	level: {
+		options: ["1", "2", "3", "4", "5"],
+		defaultValue: "1",
+		control: { type: "select" },
+	},
+	alignment: {
+		options: ["left", "right", "center"],
+		defaultValue: "left",
+		control: { type: "select" },
+	},
+};
+
 Standalone.args = {
 	text: "The quick brown fox jumps over the lazy dog",
 };
 
 export const AllHeadings = Template2.bind({});
-AllHeadings.args = {
-	text: "The quick brown fox jumps over the lazy dog",
+AllHeadings.argTypes = {
+	alignment: {
+		options: ["left", "right", "center"],
+		defaultValue: "left",
+		control: { type: "select" },
+	},
 };
 
 export const Pairings = Template3.bind({});
+Pairings.argTypes = {
+	level: {
+		options: ["1", "2", "3", "4", "5"],
+		defaultValue: "1",
+		control: { type: "select" },
+	},
+	alignment: {
+		options: ["left", "right", "center"],
+		defaultValue: "left",
+		control: { type: "select" },
+	},
+};
