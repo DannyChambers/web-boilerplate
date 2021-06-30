@@ -6,43 +6,23 @@ import Paragraph from "../paragraph/index.js";
 export default {
 	title: "Components/Arrangements/Heading",
 	component: Heading,
+	argTypes: {
+		level: {
+			options: ["1", "2", "3", "4", "5"],
+			defaultValue: "1",
+			control: { type: "select" },
+		},
+		alignment: {
+			options: ["left", "right", "center"],
+			defaultValue: "left",
+			control: { type: "select" },
+		},
+	},
 };
 
 const Template1 = (args) => <Heading {...args} />;
 
 const Template2 = (args) => {
-	return (
-		<>
-			<Heading
-				level='1'
-				alignment={args.alignment}
-				text='Heading level 1'
-			/>
-			<Heading
-				level='2'
-				alignment={args.alignment}
-				text='Heading level 2'
-			/>
-			<Heading
-				level='3'
-				alignment={args.alignment}
-				text='Heading level 3'
-			/>
-			<Heading
-				level='4'
-				alignment={args.alignment}
-				text='Heading level 4'
-			/>
-			<Heading
-				level='5'
-				alignment={args.alignment}
-				text='Heading level 5'
-			/>
-		</>
-	);
-};
-
-const Template3 = (args) => {
 	let paragraphLevel, paragraphText;
 
 	switch (
@@ -88,42 +68,8 @@ const Template3 = (args) => {
 };
 
 export const Standalone = Template1.bind({});
-Standalone.argTypes = {
-	level: {
-		options: ["1", "2", "3", "4", "5"],
-		defaultValue: "1",
-		control: { type: "select" },
-	},
-	alignment: {
-		options: ["left", "right", "center"],
-		defaultValue: "left",
-		control: { type: "select" },
-	},
-};
-
 Standalone.args = {
 	text: "The quick brown fox jumps over the lazy dog",
 };
 
-export const AllHeadings = Template2.bind({});
-AllHeadings.argTypes = {
-	alignment: {
-		options: ["left", "right", "center"],
-		defaultValue: "left",
-		control: { type: "select" },
-	},
-};
-
-export const Pairings = Template3.bind({});
-Pairings.argTypes = {
-	level: {
-		options: ["1", "2", "3", "4", "5"],
-		defaultValue: "1",
-		control: { type: "select" },
-	},
-	alignment: {
-		options: ["left", "right", "center"],
-		defaultValue: "left",
-		control: { type: "select" },
-	},
-};
+export const Pairings = Template2.bind({});

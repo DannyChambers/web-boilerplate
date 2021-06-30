@@ -1,5 +1,17 @@
 import { css } from "styled-components";
 
+//Breakpoints --
+export const breakpoints = {
+	//Can not be set as native CSS variable for media query use, so exported here
+	breakpoint1: "320px",
+	breakpoint2: "375px",
+	breakpoint3: "768px",
+	breakpoint4: "1024px",
+	breakpoint5: "1200px",
+	breakpoint6: "1600px",
+	maximumpagewidth: "1200px",
+};
+
 const Dimension = css`
 	:root {
 		//Sizing --
@@ -15,7 +27,7 @@ const Dimension = css`
 		--sizing-octuple: calc(var(--sizing-full) * 8);
 		--sizing-nonuple: calc(var(--sizing-full) * 9);
 		//Spacing --
-		--spacing-full: 15px;
+		--spacing-full: 14.6px;
 		--spacing-quarter: calc(var(--spacing-full) / 4);
 		--spacing-half: calc(var(--spacing-full) / 2);
 		--spacing-double: calc(var(--spacing-full) * 2);
@@ -27,7 +39,7 @@ const Dimension = css`
 		--spacing-octuple: calc(var(--spacing-full) * 8);
 		--spacing-nonuple: calc(var(--spacing-full) * 9);
 		//Radius --
-		--radius-full: 10px;
+		--radius-full: 11px;
 		--radius-quarter: calc(var(--radius-full) / 4);
 		--radius-half: calc(var(--radius-full) / 2);
 		--radius-double: calc(var(--radius-full) * 2);

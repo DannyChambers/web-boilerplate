@@ -7,7 +7,6 @@ const Paragraph = (props) => {
 
 const El = styled.p`
 	font-family: var(--body-font);
-	color: var(--text-color-1);
 	padding-bottom: var(--spacing-full);
 	text-align: ${(props) => props.alignment};
 

@@ -13,7 +13,6 @@ const Heading = (props) => {
 
 const El = styled.div`
 	font-family: var(--heading-font);
-	color: var(--text-color-1);
 	padding-bottom: var(--spacing-full);
 	text-align: ${(props) => props.alignment};
 
