@@ -18,36 +18,36 @@ const El = styled.div`
 
 	@media only screen and (min-width: ${breakpoints.breakpoint3}) {
 		${(props) =>
-			props.grid === "cols_100" &&
+			props.grid === "100" &&
 			css`
 				grid-template-columns: 1fr;
 			`}
 		${(props) =>
-			props.grid === "cols_50_50" &&
+			props.grid === "50_50" &&
 			css`
 				grid-template-columns: 1fr 1fr;
 			`}
 
 		${(props) =>
-			props.grid === "cols_40_60" &&
+			props.grid === "40_60" &&
 			css`
 				grid-template-columns: 1fr 1fr;
 			`}
 
         ${(props) =>
-			props.grid === "cols_60_40" &&
+			props.grid === "60_40" &&
 			css`
 				grid-template-columns: 1fr 1fr;
 			`}
 
         ${(props) =>
-			props.grid === "cols_33_33_33" &&
+			props.grid === "33_33_33" &&
 			css`
 				grid-template-columns: 1fr 1fr;
 			`}
 
         ${(props) =>
-			props.grid === "cols_25_25_25_25" &&
+			props.grid === "25_25_25_25" &&
 			css`
 				grid-template-columns: 1fr 1fr;
 			`}
@@ -55,31 +55,31 @@ const El = styled.div`
 
 	@media (min-width: ${breakpoints.breakpoint4}) {
 		${(props) =>
-			props.grid === "cols_50_50" &&
+			props.grid === "50_50" &&
 			css`
 				grid-template-columns: 1fr 1fr;
 			`}
 
 		${(props) =>
-			props.grid === "cols_40_60" &&
+			props.grid === "40_60" &&
 			css`
 				grid-template-columns: 4.8fr 7.2fr;
 			`}
 
         ${(props) =>
-			props.grid === "cols_60_40" &&
+			props.grid === "60_40" &&
 			css`
 				grid-template-columns: 7.2fr 4.8fr;
 			`}
 
         ${(props) =>
-			props.grid === "cols_33_33_33" &&
+			props.grid === "33_33_33" &&
 			css`
 				grid-template-columns: 4fr 4fr 4fr;
 			`}
 
         ${(props) =>
-			props.grid === "cols_25_25_25_25" &&
+			props.grid === "25_25_25_25" &&
 			css`
 				grid-template-columns: 3fr 3fr 3fr 3fr;
 			`}

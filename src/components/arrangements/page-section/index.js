@@ -11,18 +11,31 @@ import Paragraph from "../../arrangements/paragraph";
 const PageSection = (props) => {
 	return (
 		<El {...props} data-testid='123abc'>
-			<Heading
-				level='2'
-				text={props.heading}
-				alignment='center'
-				className='page-section_title'
-			/>
-			<Paragraph
-				level='2'
-				text={props.subheading}
-				alignment='center'
-				className='page-section_subtitle'
-			/>
+			{(() => {
+				if (props.heading) {
+					return (
+						<Heading
+							level='2'
+							text={props.heading}
+							alignment='center'
+							className='page-section_title'
+						/>
+					);
+				}
+			})()}
+
+			{(() => {
+				if (props.subheading) {
+					return (
+						<Paragraph
+							level='2'
+							text={props.subheading}
+							alignment='center'
+							className='page-section_subtitle'
+						/>
+					);
+				}
+			})()}
 
 			{props.children}
 		</El>
