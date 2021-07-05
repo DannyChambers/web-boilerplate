@@ -10,7 +10,7 @@ import Paragraph from "../../01_arrangements/paragraph";
 
 const PageSection = (props) => {
 	return (
-		<El {...props} data-testid='123abc'>
+		<El {...props} data-testid='123abc' className='page-section'>
 			{(() => {
 				if (props.heading) {
 					return (

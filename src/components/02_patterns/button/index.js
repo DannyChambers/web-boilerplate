@@ -5,7 +5,7 @@ const Button = (props) => {
 	const tag = props.href ? "a" : "button";
 
 	return (
-		<El as={tag} {...props} data-testid='123abc'>
+		<El as={tag} {...props} data-testid='123abc' className='button'>
 			{props.text}
 		</El>
 	);
@@ -14,17 +14,39 @@ const Button = (props) => {
 const El = styled.div`
 	display: inline-block;
 	font-size: var(--text-size-7);
+	line-height: var(--sizing-full);
 	font-family: var(--heading-font);
-	padding: 0 var(--spacing-full);
-	text-align: "center";
-	background: pink;
+	text-transform: uppercase;
+	padding: 0 var(--spacing-double);
+	text-align: center;
+	border-radius: var(--radius-double);
+	text-decoration: none;
+	cursor: pointer;
+	background-color: var(--cta-primary);
+	border: 2px solid var(--cta-primary);
 	color: var(--text-color-light);
-	border: 1px solid var(--brand);
+	transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out,
+		color 0.4s ease-in-out;
+
+	&:hover,
+	&:active {
+		background: var(--cta-primary--active);
+		border-color: var(--cta-primary--active);
+	}
 
 	${(props) =>
 		props.variant === "secondary" &&
 		css`
-			margin: 0 auto; //If the paragraph is aligned center we need to align the object aswell as the text itself, as we have limited the width for optimum readabilty.
+			background-color: var(--cta-secondary);
+			border: 2px solid var(--cta-secondary);
+			color: var(--text-color-dark);
+
+			&:hover,
+			&:active {
+				background: var(--cta-secondary--active);
+				border-color: var(--cta-secondary--active);
+				color: var(--text-color-dark);
+			}
 		`}
 `;
 

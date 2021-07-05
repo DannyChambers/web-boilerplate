@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable, Props } from "@storybook/addon-docs";
+import { Meta, Story, Canvas, Props } from "@storybook/addon-docs";
 
 import Paragraph from "./index.js";
 
@@ -29,6 +29,9 @@ Lorem ipsum dolor sit etiet..
 
 ## Example
 
+<br />
+<br />
+
 ### Paragraph level 1
 
 export const Template1 = (args) => (
@@ -47,7 +50,7 @@ export const Template1 = (args) => (
 );
 
 <Canvas>
-	<Story name='Paragraph1'>{Template1.bind({})}</Story>
+	<Story name='Paragraph level 1'>{Template1.bind({})}</Story>
 </Canvas>
 
 <br />
@@ -71,7 +74,7 @@ export const Template2 = (args) => (
 );
 
 <Canvas>
-	<Story name='Paragraph2'>{Template2.bind({})}</Story>
+	<Story name='Paragraph level 2'>{Template2.bind({})}</Story>
 </Canvas>
 
 <br />
@@ -111,7 +114,7 @@ export const Template3 = (args) => (
 
 ## Properties
 
-<Props story='Paragraph1' />
+<Props story='Paragraph level 1' />
 
 <br />
 <br />

@@ -1,0 +1,101 @@
+import { Meta, Story, Canvas, Props } from "@storybook/addon-docs";
+
+import ButtonGroup from "./index.js";
+import Button from "../../02_patterns/button/";
+
+<Meta title='Components/Arrangements/Button Group' />
+
+# Button group
+
+The Button group component is an Arrangement that..
+
+<br />
+<br />
+
+## Design guidance
+
+Lorem ipsum dolor sit etiet..
+
+<br />
+<br />
+
+## Example
+
+### Left aligned
+
+export const Template1 = (args) => (
+	<ButtonGroup {...args}>
+		<Button text='Button one' />
+		<Button variant='secondary' text='Button two' />
+	</ButtonGroup>
+);
+
+<Canvas>
+	<Story
+		name='Left'
+		args={{
+			alignment: "left",
+			text: "Left aligned",
+		}}
+	>
+		{Template1.bind({})}
+	</Story>
+</Canvas>
+
+<br />
+<br />
+
+### Left aligned
+
+export const Template2 = (args) => (
+	<ButtonGroup {...args}>
+		<Button text='Button one' />
+		<Button variant='secondary' text='Button two' />
+	</ButtonGroup>
+);
+
+<Canvas>
+	<Story
+		name='Right'
+		args={{
+			alignment: "right",
+			text: "Right aligned",
+		}}
+	>
+		{Template2.bind({})}
+	</Story>
+</Canvas>
+
+<br />
+<br />
+
+### Center aligned
+
+export const Template3 = (args) => (
+	<ButtonGroup {...args}>
+		<Button text='Button one' />
+		<Button variant='secondary' text='Button two' />
+	</ButtonGroup>
+);
+
+<Canvas>
+	<Story
+		name='Center'
+		args={{
+			alignment: "center",
+			text: "Center aligned",
+		}}
+	>
+		{Template3.bind({})}
+	</Story>
+</Canvas>
+
+<br />
+<br />
+
+## Properties
+
+<Props story='Left' />
+
+<br />
+<br />

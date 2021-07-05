@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 const Paragraph = (props) => {
 	return (
-		<El {...props} data-testid='123abc'>
+		<El {...props} data-testid='123abc' className='paragraph'>
 			{props.text}
 		</El>
 	);

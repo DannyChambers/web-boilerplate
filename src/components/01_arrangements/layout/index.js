@@ -4,7 +4,7 @@ import { breakpoints } from "../../00_tokens/dimension";
 
 const Layout = (props) => {
 	return (
-		<El {...props} data-testid='123abc'>
+		<El {...props} data-testid='123abc' className='layout'>
 			{props.children}
 		</El>
 	);

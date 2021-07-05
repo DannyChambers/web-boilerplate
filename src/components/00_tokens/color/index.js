@@ -27,6 +27,10 @@ export const CSSColor = css`
 		//Functional palette --
 		--text-color-dark: var(--brand-color-2);
 		--text-color-light: var(--brand-color-9);
+		--cta-primary: var(--brand-color-3);
+		--cta-primary--active: var(--brand-color-4);
+		--cta-secondary: var(--brand-color-5);
+		--cta-secondary--active: var(--brand-color-6);
 		color: var(--text-colour-dark);
 	}
 `;
