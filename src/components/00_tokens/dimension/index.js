@@ -14,6 +14,25 @@ export const breakpoints = {
 
 const Dimension = css`
 	:root {
+		//Font sizes --
+		--text-size-1: 4.2rem;
+		--line-height-1: 4.8rem;
+		--text-size-2: 3.6rem;
+		--line-height-2: 4rem;
+		--text-size-3: 2.8rem;
+		--line-height-3: 3.2rem;
+		--text-size-4: 2.4rem;
+		--line-height-4: 2.8rem;
+		--text-size-5: 2rem;
+		--line-height-5: 2.4rem;
+
+		--text-size-6: 1.8rem;
+		--line-height-6: 2.4rem;
+		--text-size-7: 1.6rem;
+		--line-height-7: 2rem;
+		--text-size-8: 1.4rem;
+		--line-height-8: 1.8rem;
+
 		//Sizing --
 		--sizing-full: 44px;
 		--sizing-quarter: calc(var(--sizing-full) / 4);
@@ -26,6 +45,7 @@ const Dimension = css`
 		--sizing-septuple: calc(var(--sizing-full) * 7);
 		--sizing-octuple: calc(var(--sizing-full) * 8);
 		--sizing-nonuple: calc(var(--sizing-full) * 9);
+
 		//Spacing --
 		--spacing-full: 14.6px;
 		--spacing-quarter: calc(var(--spacing-full) / 4);
@@ -38,6 +58,7 @@ const Dimension = css`
 		--spacing-septuple: calc(var(--spacing-full) * 7);
 		--spacing-octuple: calc(var(--spacing-full) * 8);
 		--spacing-nonuple: calc(var(--spacing-full) * 9);
+
 		//Radius --
 		--radius-full: 11px;
 		--radius-quarter: calc(var(--radius-full) / 4);

@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { breakpoints } from "../../tokens/dimension";
+import { breakpoints } from "../../00_tokens/dimension";
 
 const Layout = (props) => {
 	return (

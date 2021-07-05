@@ -1,12 +1,12 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { breakpoints } from "../../tokens/dimension";
+import { breakpoints } from "../../00_tokens/dimension";
 
 import { lightOrDark } from "../../../utilities";
 
-import Heading from "../../arrangements/heading";
-import Paragraph from "../../arrangements/paragraph";
+import Heading from "../../01_arrangements/heading";
+import Paragraph from "../../01_arrangements/paragraph";
 
 const PageSection = (props) => {
 	return (

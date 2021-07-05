@@ -1,5 +1,5 @@
 import { addDecorator } from "@storybook/react";
-import GlobalStyle from "../src/components/tokens/global-style";
+import GlobalStyle from "../src/components/00_tokens/global-style";
 
 addDecorator((story) => (
 	<>
@@ -24,7 +24,8 @@ export const parameters = {
 				[
 					"About components",
 					"Tokens",
-					"Arrangments",
+					"Arrangements",
+					["Layout", "Page Section", "Heading", "Paragraph"],
 					"Patterns",
 					"Modules",
 					"Pages",
