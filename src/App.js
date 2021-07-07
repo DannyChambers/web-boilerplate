@@ -3,7 +3,7 @@ import GlobalStyle from "./components/00_tokens/global-style";
 
 import TextInput from "./components/02_patterns/text-input/";
 import TextareaInput from "./components/02_patterns/textarea-input/";
-// import SelectInput from "./components/02_patterns/select-input/";
+import SelectInput from "./components/02_patterns/select-input/";
 import CheckboxInput from "./components/02_patterns/checkbox-input/";
 import RadiobuttonInput from "./components/02_patterns/radiobutton-input/";
 
@@ -37,13 +37,21 @@ function App() {
 				required
 				invalid
 			/>
-			{/* <SelectInput
+			<SelectInput
 				label='cccccc'
 				usePlaceholder
 				fieldMessage='This field is required'
-                                required
+				required
 				invalid
-			/> */}
+				options={[
+					"Option one",
+					"Option two",
+					"Option three",
+					"Option four",
+					"Option five",
+					"Option six",
+				]}
+			/>
 			<CheckboxInput
 				label='cccccc'
 				usePlaceholder
