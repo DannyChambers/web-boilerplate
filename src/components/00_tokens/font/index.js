@@ -16,6 +16,7 @@ const Font = css`
 		font-weight: 300;
 		font-style: normal;
 	}
+
 	:root {
 		//Fonts --
 		--heading-font: "Open Sans Bold", Arial, sans-serif;

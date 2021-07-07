@@ -35,6 +35,7 @@ const Dimension = css`
 
 		//Sizing --
 		--sizing-full: 44px;
+		--sizing-eighth: calc(var(--sizing-full) / 8);
 		--sizing-quarter: calc(var(--sizing-full) / 4);
 		--sizing-half: calc(var(--sizing-full) / 2);
 		--sizing-double: calc(var(--sizing-full) * 2);
@@ -48,6 +49,7 @@ const Dimension = css`
 
 		//Spacing --
 		--spacing-full: 14.6px;
+		--spacing-eighth: calc(var(--spacing-full) / 8);
 		--spacing-quarter: calc(var(--spacing-full) / 4);
 		--spacing-half: calc(var(--spacing-full) / 2);
 		--spacing-double: calc(var(--spacing-full) * 2);
@@ -61,6 +63,7 @@ const Dimension = css`
 
 		//Radius --
 		--radius-full: 11px;
+		--radius-eight: calc(var(--radius-full) / 8);
 		--radius-quarter: calc(var(--radius-full) / 4);
 		--radius-half: calc(var(--radius-full) / 2);
 		--radius-double: calc(var(--radius-full) * 2);

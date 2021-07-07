@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 const Paragraph = (props) => {
 	return (
 		<El {...props} data-testid='123abc' className='paragraph'>
-			{props.text}
+			{props.children}
 		</El>
 	);
 };

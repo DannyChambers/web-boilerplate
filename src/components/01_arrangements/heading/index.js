@@ -6,7 +6,7 @@ const Heading = (props) => {
 
 	return (
 		<El as={tag} {...props} data-testid='123abc' className='heading'>
-			{props.text}
+			{props.children}
 		</El>
 	);
 };

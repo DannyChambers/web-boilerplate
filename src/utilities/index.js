@@ -36,3 +36,7 @@ export const lightOrDark = (color) => {
 		return "dark";
 	}
 };
+
+export const generateID = () => {
+	return "id_" + Math.random().toString(16).slice(2);
+};

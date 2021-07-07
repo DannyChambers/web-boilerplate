@@ -1,11 +1,24 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+import Icon from "../../02_patterns/icon/";
+
 const Button = (props) => {
 	const tag = props.href ? "a" : "button";
 
+	console.log("props.icon: ", props.icon);
+
 	return (
 		<El as={tag} {...props} data-testid='123abc' className='button'>
+			{(() => {
+				if (props.icon && props.size === "small") {
+					return <Icon graphic={props.icon} size='small' />;
+				} else if (props.icon && props.size === "medium") {
+					return <Icon graphic={props.icon} size='medium' />;
+				} else if (props.icon && props.size === "large") {
+					return <Icon graphic={props.icon} size='large' />;
+				}
+			})()}
 			{props.text}
 		</El>
 	);
@@ -46,6 +59,76 @@ const El = styled.div`
 				background: var(--cta-secondary--active);
 				border-color: var(--cta-secondary--active);
 				color: var(--text-color-dark);
+			}
+		`}
+
+	${(props) =>
+		props.size === "small" &&
+		css`
+			padding: 0 var(--spacing-full);
+			font-size: var(--text-size-8);
+			line-height: calc(var(--sizing-half) + var(--sizing-quarter));
+		`}
+
+    ${(props) =>
+		props.size === "large" &&
+		css`
+			padding: 0 var(--spacing-triple);
+			font-size: var(--text-size-6);
+			line-height: calc(var(--sizing-full) + var(--sizing-quarter));
+			border-radius: var(--radius-triple);
+		`}
+
+    ${(props) =>
+		props.icon &&
+		css`
+			position: relative;
+			padding-left: calc(var(--spacing-double) + var(--spacing-half));
+
+			.icon {
+				position: absolute;
+				top: var(--spacing-quarter);
+				left: var(--spacing-half);
+
+				svg path {
+					fill: var(--text-color-light);
+				}
+			}
+		`}
+
+
+    ${(props) =>
+		props.icon &&
+		props.size === "medium" &&
+		css`
+			padding-left: calc(var(--spacing-triple) + var(--spacing-quarter));
+
+			.icon {
+				left: calc(var(--spacing-half) + var(--spacing-eighth));
+			}
+		`}
+
+    ${(props) =>
+		props.icon &&
+		props.size === "large" &&
+		css`
+			padding-left: calc(var(--spacing-quadruple) + var(--spacing-half));
+
+			.icon {
+				top: calc(var(--spacing-quarter) + var(--spacing-eighth));
+				left: var(--spacing-full);
+			}
+		`}
+
+
+    ${(props) =>
+		props.icon &&
+		props.variant === "secondary" &&
+		css`
+			.icon {
+				svg path {
+					fill: var(--text-color-dark);
+				}
 			}
 		`}
 `;

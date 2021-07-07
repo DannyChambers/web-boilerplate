@@ -10,6 +10,10 @@ const Color = {
 	brandcolor7: "#eeeeee",
 	brandcolor8: "#f2f2f2",
 	brandcolor9: "#ffffff",
+	brandcolor10: "blue",
+	brandcolor11: "green",
+	brandcolor12: "orange",
+	brandcolor13: "red",
 };
 
 export const CSSColor = css`
@@ -24,13 +28,23 @@ export const CSSColor = css`
 		--brand-color-7: ${Color.brandcolor7};
 		--brand-color-8: ${Color.brandcolor8};
 		--brand-color-9: ${Color.brandcolor9};
+		--brand-color-10: ${Color.brandcolor10};
+		--brand-color-11: ${Color.brandcolor11};
+		--brand-color-12: ${Color.brandcolor12};
+		--brand-color-13: ${Color.brandcolor13};
 		//Functional palette --
 		--text-color-dark: var(--brand-color-2);
 		--text-color-light: var(--brand-color-9);
+		--text-color-medium: var(--brand-color-6);
+		--border-color-1: var(--brand-color-6);
 		--cta-primary: var(--brand-color-3);
 		--cta-primary--active: var(--brand-color-4);
 		--cta-secondary: var(--brand-color-5);
 		--cta-secondary--active: var(--brand-color-6);
+		--status--information: var(--brand-color-10);
+		--status--valid: var(--brand-color-11);
+		--status--warning: var(--brand-color-12);
+		--status--invalid: var(--brand-color-13);
 		color: var(--text-colour-dark);
 	}
 `;
