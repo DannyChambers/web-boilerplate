@@ -15,13 +15,13 @@ const El = styled.div`
 	gap: var(--spacing-double);
 	max-width: ${breakpoints.maximumpagewidth};
 	margin: 0 auto;
+	grid-template-columns: 1fr;
+
+	> .column {
+		padding-bottom: var(--spacing-full);
+	}
 
 	@media only screen and (min-width: ${breakpoints.breakpoint3}) {
-		${(props) =>
-			props.grid === "100" &&
-			css`
-				grid-template-columns: 1fr;
-			`}
 		${(props) =>
 			props.grid === "50_50" &&
 			css`

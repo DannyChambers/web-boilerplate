@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 
 import { generateID } from "../../../utilities";
@@ -6,7 +6,22 @@ import { generateID } from "../../../utilities";
 import Paragraph from "../../01_arrangements/paragraph";
 
 const TextInput = (props) => {
+	const [fieldMessage, setFieldMessage] = useState(null);
+	const [valid, setValid] = useState(null);
 	const ID = generateID();
+
+	useEffect(() => {
+		if (props.fieldMessage) {
+			setFieldMessage(props.fieldMessage);
+		}
+		if (props.valid === true) {
+			setValid(true);
+		} else if (props.valid === false) {
+			setValid(false);
+		} else {
+			setValid(null);
+		}
+	}, [props.fieldMessage, props.valid]);
 
 	let placeholder;
 
@@ -26,53 +41,68 @@ const TextInput = (props) => {
 		}
 	};
 
-	const handleBlur = (obj) => {
+	const handleBlur = (val) => {
+		if (props.required && !val) {
+			setFieldMessage("This field is required");
+			setValid(false);
+		} else if (
+			props.validPattern === "email" &&
+			!/^\S+@\S+\.\S+$/.test(val)
+		) {
+			setFieldMessage(
+				"Please ensure you have provided a valid email address."
+			);
+			setValid(false);
+		} else if (
+			props.validPattern === "phone" &&
+			!/^[\d\(\)\-+]+$/.test(val)
+		) {
+			//Numbers and phone number symbols
+			setFieldMessage(
+				"Please ensure you have provided a valid phone number."
+			);
+			setValid(false);
+		} else {
+			setFieldMessage(props.fieldMessage);
+			setValid(true);
+		}
+
 		if (props.onBlur) {
-			props.onBlur(obj);
+			props.onBlur(val);
 		}
 	};
 
 	return (
-		<El {...props} data-testid='123abc' className='text-input'>
+		<El
+			{...props}
+			data-testid='123abc'
+			className='text-input'
+			valid={valid}
+		>
 			<label htmlFor={ID}>{props.label}</label>
 
 			<input
 				type='text'
 				id={ID}
 				placeholder={placeholder}
+				name={props.name}
 				value={props.value}
+				disabled={props.disabled}
 				onChange={(e) => {
-					handleChange({
-						name: props.name,
-						value: e.target.value,
-						required: props.required,
-						validPattern: props.validPattern,
-					});
+					handleChange(e.target.value);
 				}}
 				onFocus={(e) => {
-					handleFocus({
-						name: props.name,
-						value: e.target.value,
-						required: props.required,
-						validPattern: props.validPattern,
-					});
+					handleFocus(e.target.value);
 				}}
 				onBlur={(e) => {
-					handleBlur({
-						name: props.name,
-						value: e.target.value,
-						required: props.required,
-						validPattern: props.validPattern,
-					});
+					handleBlur(e.target.value);
 				}}
 			/>
 			{props.children}
 
 			{(() => {
-				if (props.fieldMessage) {
-					return (
-						<Paragraph level='3'>{props.fieldMessage}</Paragraph>
-					);
+				if (fieldMessage) {
+					return <Paragraph level='3'>{fieldMessage}</Paragraph>;
 				}
 			})()}
 		</El>
@@ -81,7 +111,6 @@ const TextInput = (props) => {
 
 const El = styled.div`
 	position: relative;
-	max-width: 75ch; //Max 75 characters for optimum readability
 
 	label {
 		display: block;
@@ -89,6 +118,7 @@ const El = styled.div`
 		font-size: var(--text-size-6);
 		line-height: var(--sizing-full);
 		cursor: pointer;
+		max-width: 75ch; //Max 75 characters for optimum readability
 	}
 
 	${(props) =>
@@ -167,13 +197,26 @@ const El = styled.div`
 		}
 	}
 
+	${(props) =>
+		props.disabled &&
+		css`
+			label {
+				cursor: not-allowed;
+				pointer-events: none;
+			}
+			input {
+				cursor: not-allowed;
+				pointer-events: none;
+			}
+		`}
+
 	.paragraph {
 		padding: var(--spacing-half) 0 0 0;
 		color: var(--status--information);
 	}
 
 	${(props) =>
-		props.valid &&
+		props.valid === true &&
 		css`
 			.paragraph {
 				color: var(--status--valid);
@@ -186,20 +229,7 @@ const El = styled.div`
 		`}
 
 	${(props) =>
-		props.warning &&
-		css`
-			.paragraph {
-				color: var(--status--warning);
-			}
-
-			:after,
-			label:after {
-				color: var(--status--warning);
-			}
-		`}
-
-	${(props) =>
-		props.invalid &&
+		props.valid === false &&
 		css`
 			.paragraph {
 				color: var(--status--invalid);

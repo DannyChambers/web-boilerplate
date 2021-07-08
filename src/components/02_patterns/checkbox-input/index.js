@@ -14,21 +14,21 @@ const CheckboxInput = (props) => {
 		placeholder = props.label;
 	}
 
-	const handleChange = (obj) => {
+	const handleChange = (val) => {
 		if (props.onChange) {
-			props.onChange(obj);
+			props.onChange(val);
 		}
 	};
 
-	const handleFocus = (obj) => {
+	const handleFocus = (val) => {
 		if (props.onFocus) {
-			props.onFocus(obj);
+			props.onFocus(val);
 		}
 	};
 
-	const handleBlur = (obj) => {
+	const handleBlur = (val) => {
 		if (props.onBlur) {
-			props.onBlur(obj);
+			props.onBlur(val);
 		}
 	};
 
@@ -40,30 +40,18 @@ const CheckboxInput = (props) => {
 					type='checkbox'
 					id={ID}
 					placeholder={placeholder}
+					name={props.name}
 					value={props.value}
+					checked={props.selected}
+					disabled={props.disabled}
 					onChange={(e) => {
-						handleChange({
-							name: props.name,
-							value: e.target.value,
-							required: props.required,
-							validPattern: props.validPattern,
-						});
+						handleChange(e.target.value);
 					}}
 					onFocus={(e) => {
-						handleFocus({
-							name: props.name,
-							value: e.target.value,
-							required: props.required,
-							validPattern: props.validPattern,
-						});
+						handleFocus(e.target.value);
 					}}
 					onBlur={(e) => {
-						handleBlur({
-							name: props.name,
-							value: e.target.value,
-							required: props.required,
-							validPattern: props.validPattern,
-						});
+						handleBlur(e.target.value);
 					}}
 				/>
 			</div>
@@ -81,18 +69,19 @@ const CheckboxInput = (props) => {
 };
 
 const El = styled.div`
-	max-width: 75ch; //Max 75 characters for optimum readability
+	min-height: var(--sizing-full);
 
 	.wrapper {
-		padding-left: calc(var(--sizing-full) + var(--spacing-half));
+		padding-left: calc(var(--sizing-half) + var(--spacing-half));
 		position: relative;
 
 		label {
 			display: block;
 			font-family: var(--body-font);
 			font-size: var(--text-size-6);
-			line-height: var(--sizing-full);
+			line-height: normal;
 			cursor: pointer;
+			max-width: 75ch; //Max 75 characters for optimum readability
 
 			${(props) =>
 				props.required &&
@@ -110,14 +99,14 @@ const El = styled.div`
 
 		input {
 			display: block;
-			width: var(--sizing-full);
-			height: var(--sizing-full);
+			width: var(--sizing-half);
+			height: var(--sizing-half);
 			border: 1px solid var(--border-color-1);
 			border-radius: var(--radius-half);
 			line-height: var(--sizing-full);
 			padding: 0 var(--spacing-full);
 			position: absolute;
-			top: 0;
+			top: calc(var(--spacing-quarter) - var(--spacing-eighth));
 			left: 0;
 
 			&:hover {
@@ -130,6 +119,19 @@ const El = styled.div`
 			}
 		}
 	}
+
+	${(props) =>
+		props.disabled &&
+		css`
+			label {
+				cursor: not-allowed;
+				pointer-events: none;
+			}
+			input {
+				cursor: not-allowed;
+				pointer-events: none;
+			}
+		`}
 
 	.paragraph {
 		padding: var(--spacing-half) 0 0 0;

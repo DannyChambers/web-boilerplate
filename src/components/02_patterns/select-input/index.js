@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
 import { generateID } from "../../../utilities";
 
 import Paragraph from "../../01_arrangements/paragraph";
+import TextInput from "../../02_patterns/text-input";
 
 const SelectInput = (props) => {
+	const [selected, setSelected] = useState(null);
+	const [fieldMessage, setFieldMessage] = useState(null);
+	const [valid, setValid] = useState(null);
 	const ID = generateID();
 
 	let placeholder;
@@ -14,55 +18,63 @@ const SelectInput = (props) => {
 		placeholder = props.label;
 	}
 
-	const handleChange = (obj) => {
+	const handleChange = (val) => {
+		console.log("obj.value: ", val);
+		if (
+			(props.required && !val) ||
+			(props.required && val === "") ||
+			(props.required && val === "Other")
+		) {
+			setFieldMessage("This field is required");
+			setValid(false);
+			setSelected(val);
+		} else if (val === "Other") {
+			setSelected(val);
+		} else {
+			setFieldMessage(props.fieldMessage);
+			setValid(true);
+		}
+
 		if (props.onChange) {
-			props.onChange(obj);
+			props.onChange(val);
 		}
 	};
 
-	const handleFocus = (obj) => {
+	const handleFocus = (val) => {
 		if (props.onFocus) {
-			props.onFocus(obj);
+			props.onFocus(val);
 		}
 	};
 
-	const handleBlur = (obj) => {
+	const handleBlur = (val) => {
 		if (props.onBlur) {
-			props.onBlur(obj);
+			props.onBlur(val);
 		}
 	};
 
 	return (
-		<El {...props} data-testid='123abc' className='text-input'>
+		<El
+			{...props}
+			data-testid='123abc'
+			className='text-input'
+			valid={valid}
+		>
 			<label htmlFor={ID}>{props.label}</label>
 
 			<select
 				id={ID}
 				placeholder={placeholder}
+				name={props.name}
 				value={props.value}
+				disabled={props.disabled}
 				onChange={(e) => {
-					handleChange({
-						name: props.name,
-						value: e.target.value,
-						required: props.required,
-						validPattern: props.validPattern,
-					});
+					handleChange(e.target.value);
 				}}
 				onFocus={(e) => {
-					handleFocus({
-						name: props.name,
-						value: e.target.value,
-						required: props.required,
-						validPattern: props.validPattern,
-					});
+					handleFocus(e.target.value);
 				}}
 				onBlur={(e) => {
-					handleBlur({
-						name: props.name,
-						value: e.target.value,
-						required: props.required,
-						validPattern: props.validPattern,
-					});
+					handleBlur(e.target.value);
 				}}
 			>
 				{(() => {
@@ -73,15 +85,29 @@ const SelectInput = (props) => {
 					}
 				})()}
 
-				{props.options.map((option) => {
-					return <option value={option}>{option}</option>;
+				{props.options.map((option, index) => {
+					return (
+						<option value={option} key={`_${index}`}>
+							{option}
+						</option>
+					);
 				})}
 			</select>
 
 			{(() => {
 				if (props.fieldMessage) {
+					return <Paragraph level='3'>{fieldMessage}</Paragraph>;
+				}
+			})()}
+
+			{(() => {
+				if (selected == "Other") {
 					return (
-						<Paragraph level='3'>{props.fieldMessage}</Paragraph>
+						<TextInput
+							label='Please specify..'
+							name={`${props.name}_other`}
+							onChange={handleChange}
+						/>
 					);
 				}
 			})()}
@@ -91,7 +117,6 @@ const SelectInput = (props) => {
 
 const El = styled.div`
 	position: relative;
-	max-width: 75ch; //Max 75 characters for optimum readability
 
 	label {
 		display: block;
@@ -99,6 +124,7 @@ const El = styled.div`
 		font-size: var(--text-size-6);
 		line-height: var(--sizing-full);
 		cursor: pointer;
+		max-width: 75ch; //Max 75 characters for optimum readability
 	}
 
 	${(props) =>
@@ -143,6 +169,10 @@ const El = styled.div`
 					color: var(--status--information);
 				}
 			}
+
+			.text-input label:after {
+				display: none;
+			}
 		`}
 
 	select {
@@ -151,15 +181,16 @@ const El = styled.div`
 		border: 1px solid var(--border-color-1);
 		border-radius: var(--radius-half);
 		height: var(--sizing-full);
+		line-height: var(--sizing-full);
 		padding: 0 var(--spacing-double) 0 var(--spacing-full);
 		font-family: var(--body-font);
 		font-size: var(--text-size-6);
 		-webkit-appearance: none;
 		-moz-appearance: none;
-		background: transparent;
+		background: white;
 		background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
 		background-repeat: no-repeat;
-		background-position-x: 96%;
+		background-position-x: 99%;
 		background-position-y: 10px;
 
 		&:hover {
@@ -185,6 +216,19 @@ const El = styled.div`
 		}
 	}
 
+	${(props) =>
+		props.disabled &&
+		css`
+			label {
+				cursor: not-allowed;
+				pointer-events: none;
+			}
+			select {
+				cursor: not-allowed;
+				pointer-events: none;
+			}
+		`}
+
 	.paragraph {
 		padding: var(--spacing-half) 0 0 0;
 		color: var(--status--information);
@@ -204,20 +248,20 @@ const El = styled.div`
 		`}
 
 	${(props) =>
-		props.warning &&
+		props.valid === true &&
 		css`
 			.paragraph {
-				color: var(--status--warning);
+				color: var(--status--valid);
 			}
 
 			:after,
 			label:after {
-				color: var(--status--warning);
+				color: var(--status--valid);
 			}
 		`}
 
 	${(props) =>
-		props.invalid &&
+		props.valid === false &&
 		css`
 			.paragraph {
 				color: var(--status--invalid);
