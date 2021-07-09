@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { breakpoints } from "../../00_tokens/dimension";
+
 const Form = (props) => {
 	return (
 		<El {...props} data-testid='123abc' className='form'>
@@ -29,15 +31,30 @@ const El = styled.form`
 	fieldset {
 		border: 1px solid var(--border-color-1);
 		border-radius: var(--radius-half);
-		padding: var(--spacing-double) var(--spacing-double) var(--spacing-full)
-			var(--spacing-double);
+		padding: var(--spacing-full) var(--spacing-double);
 		margin-bottom: var(--spacing-double);
+		position: relative;
 
 		legend {
-			padding: 0 var(--spacing-quarter);
+			padding: 0 var(--spacing-half);
 			font-family: var(--body-font);
 			font-size: var(--text-size-5);
 			line-height: var(--line-height-5);
+			position: absolute;
+			top: calc(-1 * var(--spacing-threequarters));
+			left: calc(var(--spacing-full) + var(--spacing-half));
+			background: white;
+		}
+	}
+
+	@media (min-width: ${breakpoints.breakpoint3}) {
+		fieldset {
+			padding: var(--spacing-double) var(--spacing-triple);
+
+			legend {
+				padding: 0 var(--spacing-full);
+				left: var(--spacing-double);
+			}
 		}
 	}
 `;

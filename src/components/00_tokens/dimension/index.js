@@ -38,6 +38,9 @@ const Dimension = css`
 		--sizing-eighth: calc(var(--sizing-full) / 8);
 		--sizing-quarter: calc(var(--sizing-full) / 4);
 		--sizing-half: calc(var(--sizing-full) / 2);
+		--sizing-threequarters: calc(
+			var(--sizing-full) - var(--sizing-quarter)
+		);
 		--sizing-double: calc(var(--sizing-full) * 2);
 		--sizing-triple: calc(var(--sizing-full) * 3);
 		--sizing-quadruple: calc(var(--sizing-full) * 4);
@@ -52,6 +55,9 @@ const Dimension = css`
 		--spacing-eighth: calc(var(--spacing-full) / 8);
 		--spacing-quarter: calc(var(--spacing-full) / 4);
 		--spacing-half: calc(var(--spacing-full) / 2);
+		--spacing-threequarters: calc(
+			var(--spacing-full) - var(--spacing-quarter)
+		);
 		--spacing-double: calc(var(--spacing-full) * 2);
 		--spacing-triple: calc(var(--spacing-full) * 3);
 		--spacing-quadruple: calc(var(--spacing-full) * 4);
@@ -66,6 +72,9 @@ const Dimension = css`
 		--radius-eight: calc(var(--radius-full) / 8);
 		--radius-quarter: calc(var(--radius-full) / 4);
 		--radius-half: calc(var(--radius-full) / 2);
+		--radius-threequarters: calc(
+			var(--radius-full) - var(--radius-quarter)
+		);
 		--radius-double: calc(var(--radius-full) * 2);
 		--radius-triple: calc(var(--radius-full) * 3);
 		--radius-quadruple: calc(var(--radius-full) * 4);

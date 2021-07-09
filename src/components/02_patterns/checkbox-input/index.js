@@ -70,6 +70,7 @@ const CheckboxInput = (props) => {
 
 const El = styled.div`
 	min-height: var(--sizing-full);
+	padding-top: var(--sizing-quarter);
 
 	.wrapper {
 		padding-left: calc(var(--sizing-half) + var(--spacing-half));

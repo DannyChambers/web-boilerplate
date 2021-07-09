@@ -12,16 +12,22 @@ const Layout = (props) => {
 
 const El = styled.div`
 	display: grid;
-	gap: var(--spacing-double);
+	gap: 0 var(--spacing-full);
 	max-width: ${breakpoints.maximumpagewidth};
 	margin: 0 auto;
 	grid-template-columns: 1fr;
 
-	> .column {
-		padding-bottom: var(--spacing-full);
+	.column {
+		padding-bottom: var(--spacing-half);
 	}
 
 	@media only screen and (min-width: ${breakpoints.breakpoint3}) {
+		gap: 0 var(--spacing-double);
+
+		.column {
+			padding-bottom: var(--spacing-full);
+		}
+
 		${(props) =>
 			props.grid === "50_50" &&
 			css`
