@@ -33,6 +33,7 @@ const SelectInput = (props) => {
 		} else {
 			setFieldMessage(props.fieldMessage);
 			setValid(true);
+			setSelected(val);
 		}
 
 		if (props.onChange) {

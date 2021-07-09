@@ -6,8 +6,6 @@ import Icon from "../../02_patterns/icon/";
 const Button = (props) => {
 	const tag = props.href ? "a" : "button";
 
-	console.log("props.icon: ", props.icon);
-
 	return (
 		<El as={tag} {...props} data-testid='123abc' className='button'>
 			{(() => {

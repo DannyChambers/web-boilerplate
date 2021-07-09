@@ -1,0 +1,91 @@
+import { Meta, Story, Canvas, Props } from "@storybook/addon-docs";
+
+import List from "./index.js";
+
+<Meta
+	title='Components/Arrangements/List'
+	argTypes={{
+		level: {
+			options: ["1", "2", "3"],
+			defaultValue: "2",
+			control: { type: "select" },
+		},
+	}}
+/>
+
+# List
+
+The List component is an Arrangement that..
+
+<br />
+<br />
+
+## Design guidance
+
+Lorem ipsum dolor sit etiet..
+
+<br />
+<br />
+
+## Example
+
+### Unordered list
+
+export const Template1 = (args) => (
+	<List {...args} type='ul'>
+		<li>List item one</li>
+		<li>List item two</li>
+		<li>List item three</li>
+		<li>List item four</li>
+	</List>
+);
+
+<Canvas>
+	<Story name='Unordered list'>{Template1.bind({})}</Story>
+</Canvas>
+
+<br />
+<br />
+
+### Unordered list with icons
+
+export const Template2 = (args) => (
+	<List {...args} type='ul'>
+		<li graphic='magic-wand'>List item one</li>
+		<li graphic='paint-roller'>List item two</li>
+		<li graphic='pencil-ruler'>List item three</li>
+		<li graphic='umbrella'>List item four</li>
+	</List>
+);
+
+<Canvas>
+	<Story name='Unordered list with icons'>{Template2.bind({})}</Story>
+</Canvas>
+
+<br />
+<br />
+
+### Ordered list
+
+export const Template3 = (args) => (
+	<List {...args} type='ol'>
+		<li>List item one</li>
+		<li>List item two</li>
+		<li>List item three</li>
+		<li>List item four</li>
+	</List>
+);
+
+<Canvas>
+	<Story name='Ordered list'>{Template3.bind({})}</Story>
+</Canvas>
+
+<br />
+<br />
+
+## Properties
+
+<Props story='Unordered list' />
+
+<br />
+<br />

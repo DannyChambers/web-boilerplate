@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 
 import iconSet from "../../../assets/fonts/icon/selection.json";
 import IcomoonReact, { iconList } from "icomoon-react";
-import Color from "../../00_tokens/color/";
 
 const Icon = (props) => {
 	let sizeAsNumber;
@@ -37,13 +36,14 @@ const Icon = (props) => {
 										width: "10%",
 										padding: 44,
 									}}
+									title={graphic}
 								>
 									<IcomoonReact
 										iconSet={iconSet}
 										size={30}
 										icon={graphic}
 									/>
-									<p
+									{/* <p
 										style={{
 											fontSize: 16,
 											textAlign: "center",
@@ -52,7 +52,7 @@ const Icon = (props) => {
 										}}
 									>
 										{graphic}
-									</p>
+									</p> */}
 								</span>
 							))}
 						</>

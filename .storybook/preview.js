@@ -35,6 +35,7 @@ export const parameters = {
 					],
 					"Patterns",
 					[
+						"Logo",
 						"Icon",
 						"Link",
 						"Button",
@@ -45,7 +46,9 @@ export const parameters = {
 						"Radiobutton Input",
 					],
 					"Modules",
+					["Page Header", "Page Footer", "Site Footer"],
 					"Pages",
+					["Home"],
 				],
 			],
 		},
