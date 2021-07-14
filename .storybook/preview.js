@@ -9,6 +9,7 @@ addDecorator((story) => (
 ));
 
 export const parameters = {
+	layout: "fullscreen",
 	actions: { argTypesRegex: "^on[A-Z].*" },
 	controls: {
 		matchers: {
@@ -20,6 +21,8 @@ export const parameters = {
 		storySort: {
 			order: [
 				"Introduction",
+				"Device support",
+				"Accessibility",
 				"Components",
 				[
 					"About components",

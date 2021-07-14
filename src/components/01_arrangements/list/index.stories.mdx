@@ -29,6 +29,24 @@ Lorem ipsum dolor sit etiet..
 
 ## Example
 
+### Default
+
+export const Template1 = (args) => (
+	<List {...args}>
+		<li>List item one</li>
+		<li>List item two</li>
+		<li>List item three</li>
+		<li>List item four</li>
+	</List>
+);
+
+<Canvas>
+	<Story name='Unordered list'>{Template1.bind({})}</Story>
+</Canvas>
+
+<br />
+<br />
+
 ### Unordered list
 
 export const Template1 = (args) => (

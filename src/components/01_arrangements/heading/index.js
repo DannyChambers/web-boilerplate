@@ -64,6 +64,42 @@ const El = styled.div`
 			font-size: var(--text-size-5);
 			line-height: var(--line-height-5);
 		`};
+
+	${(props) =>
+		props.appearance === "1" &&
+		css`
+			font-size: var(--text-size-1);
+			line-height: var(--line-height-1);
+			padding-bottom: var(--spacing-double);
+		`}
+
+	${(props) =>
+		props.appearance === "2" &&
+		css`
+			font-size: var(--text-size-2);
+			line-height: var(--line-height-2);
+		`}
+
+	${(props) =>
+		props.appearance === "3" &&
+		css`
+			font-size: var(--text-size-3);
+			line-height: var(--line-height-3);
+		`}
+
+	${(props) =>
+		props.appearance === "4" &&
+		css`
+			font-size: var(--text-size-4);
+			line-height: var(--line-height-4);
+		`}
+
+	${(props) =>
+		props.appearance === "5" &&
+		css`
+			font-size: var(--text-size-5);
+			line-height: var(--line-height-5);
+		`};
 `;
 
 export default Heading;

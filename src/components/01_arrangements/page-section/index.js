@@ -9,6 +9,7 @@ import Heading from "../../01_arrangements/heading";
 import Paragraph from "../../01_arrangements/paragraph";
 
 const PageSection = (props) => {
+	console.table(props);
 	return (
 		<El {...props} data-testid='123abc' className='page-section'>
 			{(() => {
@@ -16,10 +17,11 @@ const PageSection = (props) => {
 					return (
 						<Heading
 							level='2'
-							text={props.heading}
 							alignment='center'
 							className='page-section_title'
-						/>
+						>
+							{props.heading}
+						</Heading>
 					);
 				}
 			})()}
@@ -29,10 +31,11 @@ const PageSection = (props) => {
 					return (
 						<Paragraph
 							level='2'
-							text={props.subheading}
 							alignment='center'
 							className='page-section_subtitle'
-						/>
+						>
+							{props.subheading}
+						</Paragraph>
 					);
 				}
 			})()}

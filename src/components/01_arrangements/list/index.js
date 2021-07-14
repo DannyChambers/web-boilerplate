@@ -40,22 +40,10 @@ const El = styled.div`
 		line-height: var(--text-size-7);
 		margin-bottom: var(--spacing-threequarters);
 
-		&:before {
-			content: " ";
-			display: inline-block;
-			padding: 4px;
-			background: var(--border-color-1);
-			border-radius: var(--radius-full);
-			margin-right: calc(var(--spacing-half) - var(--spacing-eighth));
-			position: relative;
-			top: -1px;
-		}
-
 		.icon {
 			position: relative;
 			z-index: 3;
-			margin: 0 5px 0 -17px;
-			background: white;
+			margin: 0 5px 0 0;
 		}
 
 		${(props) =>
@@ -84,6 +72,30 @@ const El = styled.div`
 				}
 			`}
 	}
+
+	${(props) =>
+		props.type === "ul" &&
+		css`
+			counter-reset: ordered-list-counter;
+
+			li {
+				margin-bottom: var(--spacing-full);
+				counter-increment: my-awesome-counter;
+
+				&:before {
+					content: " ";
+					display: inline-block;
+					padding: 4px;
+					background: var(--border-color-1);
+					border-radius: var(--radius-full);
+					margin-right: calc(
+						var(--spacing-half) - var(--spacing-eighth)
+					);
+					position: relative;
+					top: -1px;
+				}
+			}
+		`}
 
 	${(props) =>
 		props.type === "ol" &&

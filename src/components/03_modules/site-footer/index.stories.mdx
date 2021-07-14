@@ -2,6 +2,8 @@ import { Meta, Story, Canvas, Props } from "@storybook/addon-docs";
 
 import SiteFooter from "./index.js";
 
+import List from "../../01_arrangements/list/";
+
 <Meta
 	title='Components/Modules/Site Footer'
 	argTypes={{
@@ -29,9 +31,17 @@ Lorem ipsum dolor sit etiet..
 
 ## Example
 
-### Logged in
+### Logged out
 
-export const Template1 = (args) => <SiteFooter {...args} />;
+export const Template1 = (args) => (
+	<SiteFooter {...args}>
+		<List level='3'>
+			<li>List item one</li>
+			<li>List item two</li>
+			<li>List item three</li>
+		</List>
+	</SiteFooter>
+);
 
 <Canvas>
 	<Story
@@ -49,7 +59,14 @@ export const Template1 = (args) => <SiteFooter {...args} />;
 
 ### Logged in
 
-export const Template2 = (args) => <SiteFooter {...args} />;
+export const Template2 = (args) => (
+	<SiteFooter {...args}>
+		<List level='3'>
+			<li>List item one</li>
+			<li>List item two</li>
+		</List>
+	</SiteFooter>
+);
 
 <Canvas>
 	<Story
