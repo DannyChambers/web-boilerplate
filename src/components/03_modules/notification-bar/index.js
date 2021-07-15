@@ -5,7 +5,11 @@ import Icon from "../../02_patterns/icon/";
 
 const NotificationBar = (props) => {
 	return (
-		<El {...props} data-testid='123abc' className={`notification-bar ${props.classes}`}
+		<El
+			{...props}
+			data-testid='123abc'
+			className={`notification-bar ${props.classes}`}
+		>
 			{(() => {
 				if (props.icon) {
 					return <Icon graphic={props.icon} size='small' />;
