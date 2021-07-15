@@ -40,6 +40,11 @@ const El = styled.div`
 		line-height: var(--text-size-7);
 		margin-bottom: var(--spacing-threequarters);
 
+		&:before {
+			padding: 4px;
+			margin-right: calc(var(--spacing-half) - var(--spacing-eighth));
+		}
+
 		.icon {
 			position: relative;
 			z-index: 3;
@@ -85,12 +90,9 @@ const El = styled.div`
 				&:before {
 					content: " ";
 					display: inline-block;
-					padding: 4px;
+					/* padding: 4px; */
 					background: var(--border-color-1);
 					border-radius: var(--radius-full);
-					margin-right: calc(
-						var(--spacing-half) - var(--spacing-eighth)
-					);
 					position: relative;
 					top: -1px;
 				}
@@ -115,7 +117,7 @@ const El = styled.div`
 					background: var(--border-color-1);
 					border-radius: var(--radius-double);
 					text-align: center;
-					font-size: var(--text-size-8);
+					/* font-size: var(--text-size-8); */
 				}
 			}
 		`}

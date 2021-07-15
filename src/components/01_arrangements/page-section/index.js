@@ -9,7 +9,6 @@ import Heading from "../../01_arrangements/heading";
 import Paragraph from "../../01_arrangements/paragraph";
 
 const PageSection = (props) => {
-	console.table(props);
 	return (
 		<El {...props} data-testid='123abc' className='page-section'>
 			{(() => {

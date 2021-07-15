@@ -29,7 +29,7 @@ Lorem ipsum dolor sit etiet..
 
 ## Example
 
-### Logged in
+### Logged out
 
 export const Template1 = (args) => <Homepage {...args} />;
 
@@ -41,24 +41,6 @@ export const Template1 = (args) => <Homepage {...args} />;
 		}}
 	>
 		{Template1.bind({})}
-	</Story>
-</Canvas>
-
-<br />
-<br />
-
-### Logged in
-
-export const Template2 = (args) => <Homepage {...args} />;
-
-<Canvas>
-	<Story
-		name='Logged in'
-		args={{
-			loggedIn: true,
-		}}
-	>
-		{Template2.bind({})}
 	</Story>
 </Canvas>
 

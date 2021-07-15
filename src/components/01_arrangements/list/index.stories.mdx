@@ -41,15 +41,15 @@ export const Template1 = (args) => (
 );
 
 <Canvas>
-	<Story name='Unordered list'>{Template1.bind({})}</Story>
+	<Story name='Default'>{Template1.bind({})}</Story>
 </Canvas>
 
 <br />
 <br />
 
-### Unordered list
+### Bullet list
 
-export const Template1 = (args) => (
+export const Template2 = (args) => (
 	<List {...args} type='ul'>
 		<li>List item one</li>
 		<li>List item two</li>
@@ -59,31 +59,13 @@ export const Template1 = (args) => (
 );
 
 <Canvas>
-	<Story name='Unordered list'>{Template1.bind({})}</Story>
+	<Story name='Bullet list'>{Template2.bind({})}</Story>
 </Canvas>
 
 <br />
 <br />
 
-### Unordered list with icons
-
-export const Template2 = (args) => (
-	<List {...args} type='ul'>
-		<li graphic='magic-wand'>List item one</li>
-		<li graphic='paint-roller'>List item two</li>
-		<li graphic='pencil-ruler'>List item three</li>
-		<li graphic='umbrella'>List item four</li>
-	</List>
-);
-
-<Canvas>
-	<Story name='Unordered list with icons'>{Template2.bind({})}</Story>
-</Canvas>
-
-<br />
-<br />
-
-### Ordered list
+### Numbered list
 
 export const Template3 = (args) => (
 	<List {...args} type='ol'>
@@ -95,7 +77,25 @@ export const Template3 = (args) => (
 );
 
 <Canvas>
-	<Story name='Ordered list'>{Template3.bind({})}</Story>
+	<Story name='Numbered list'>{Template3.bind({})}</Story>
+</Canvas>
+
+<br />
+<br />
+
+### List with icons
+
+export const Template4 = (args) => (
+	<List {...args}>
+		<li graphic='magic-wand'>List item one</li>
+		<li graphic='paint-roller'>List item two</li>
+		<li graphic='pencil-ruler'>List item three</li>
+		<li graphic='umbrella'>List item four</li>
+	</List>
+);
+
+<Canvas>
+	<Story name='List with icons'>{Template4.bind({})}</Story>
 </Canvas>
 
 <br />
@@ -103,7 +103,7 @@ export const Template3 = (args) => (
 
 ## Properties
 
-<Props story='Unordered list' />
+<Props story='Default' />
 
 <br />
 <br />

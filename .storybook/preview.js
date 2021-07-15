@@ -49,7 +49,12 @@ export const parameters = {
 						"Radiobutton Input",
 					],
 					"Modules",
-					["Page Header", "Page Footer", "Site Footer"],
+					[
+						"Page Header",
+						"Page Footer",
+						"Site Footer",
+						"Notifcation Bar",
+					],
 					"Pages",
 					["Home"],
 				],

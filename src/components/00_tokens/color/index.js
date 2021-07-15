@@ -1,19 +1,19 @@
 import { css } from "styled-components";
 
 const Color = {
-	brandcolor1: "#000000",
-	brandcolor2: "#111111",
-	brandcolor3: "#333333",
-	brandcolor4: "#666666",
-	brandcolor5: "#999999",
-	brandcolor6: "#cccccc",
-	brandcolor7: "#eeeeee",
-	brandcolor8: "#f2f2f2",
-	brandcolor9: "#ffffff",
-	brandcolor10: "blue",
-	brandcolor11: "green",
-	brandcolor12: "orange",
-	brandcolor13: "red",
+	brandcolor1: "hsl(0, 0%, 0%)",
+	brandcolor2: "hsl(0, 0%, 7%)",
+	brandcolor3: "hsl(0, 0%, 20%)",
+	brandcolor4: "hsl(0, 0%, 40%)",
+	brandcolor5: "hsl(0, 0%, 60%)",
+	brandcolor6: "hsl(0, 0%, 80%)",
+	brandcolor7: "hsl(0, 0%, 93%)",
+	brandcolor8: "hsl(0, 0%, 95%)",
+	brandcolor9: "hsl(0, 0%, 100%)",
+	brandcolor10: "hsl(203, 92%, 75%)",
+	brandcolor11: "hsl(120, 61%, 50%)",
+	brandcolor12: "hsl(39, 100%, 50%)",
+	brandcolor13: "hsl(0, 100%, 50%)",
 };
 
 export const CSSColor = css`
@@ -41,10 +41,10 @@ export const CSSColor = css`
 		--cta-primary--active: var(--brand-color-4);
 		--cta-secondary: var(--brand-color-5);
 		--cta-secondary--active: var(--brand-color-6);
-		--status--information: var(--brand-color-2);
-		--status--valid: var(--brand-color-11);
+		--status--information: var(--brand-color-10);
+		--status--success: var(--brand-color-11);
 		--status--warning: var(--brand-color-12);
-		--status--invalid: var(--brand-color-13);
+		--status--error: var(--brand-color-13);
 		color: var(--text-colour-dark);
 	}
 `;

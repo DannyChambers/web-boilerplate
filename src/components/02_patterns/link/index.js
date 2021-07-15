@@ -2,8 +2,16 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 const Link = (props) => {
+	let target;
+
+	if (props.newwindow) {
+		target = "_blank";
+	} else {
+		target = "parent";
+	}
+
 	return (
-		<El {...props} data-testid='123abc' className='link'>
+		<El {...props} data-testid='123abc' className='link' target={target}>
 			{props.children}
 		</El>
 	);
