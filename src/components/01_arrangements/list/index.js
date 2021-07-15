@@ -7,7 +7,12 @@ const List = (props) => {
 	const tag = props.type ? props.type : "ul";
 
 	return (
-		<El as={tag} {...props} data-testid='123abc' className='list'>
+		<El
+			as={tag}
+			{...props}
+			data-testid='123abc'
+			className={`list ${props.classes}`}
+		>
 			{props.children.map((child, index) => {
 				return (
 					<li key={index}>

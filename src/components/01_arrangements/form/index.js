@@ -5,7 +5,7 @@ import { breakpoints } from "../../00_tokens/dimension";
 
 const Form = (props) => {
 	return (
-		<El {...props} data-testid='123abc' className='form'>
+		<El {...props} data-testid='123abc' className={`form ${props.classes}`}>
 			{props.children}
 		</El>
 	);

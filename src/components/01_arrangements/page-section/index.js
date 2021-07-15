@@ -10,7 +10,11 @@ import Paragraph from "../../01_arrangements/paragraph";
 
 const PageSection = (props) => {
 	return (
-		<El {...props} data-testid='123abc' className='page-section'>
+		<El
+			{...props}
+			data-testid='123abc'
+			className={`page-section ${props.classes}`}
+		>
 			{(() => {
 				if (props.heading) {
 					return (
@@ -46,7 +50,7 @@ const PageSection = (props) => {
 
 const El = styled.div`
 	background: ${(props) => props.backgroundColor};
-	padding: var(--spacing-full);
+	padding: var(--spacing-double) var(--spacing-full);
 
 	${(props) => {
 		if (

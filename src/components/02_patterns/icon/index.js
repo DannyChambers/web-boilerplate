@@ -22,7 +22,7 @@ const Icon = (props) => {
 	}
 
 	return (
-		<El {...props} data-testid='123abc' className='icon'>
+		<El {...props} data-testid='123abc' className={`icon ${props.classes}`}>
 			{(() => {
 				if (props.graphic === "all") {
 					const list = iconList(iconSet);

@@ -5,7 +5,11 @@ import Paragraph from "../../01_arrangements/paragraph/";
 
 const SiteFooter = (props) => {
 	return (
-		<El {...props} data-testid='123abc' className='site-footer'>
+		<El
+			{...props}
+			data-testid='123abc'
+			className={`site-footer ${props.classes}`}
+		>
 			{props.children}
 			<Paragraph level='3' alignment='center'>
 				&copy; Copyright 2021
@@ -25,7 +29,7 @@ const El = styled.div`
 
 		li {
 			display: inline-block;
-			margin: 0 var(--spacing-full);
+			margin: 0 var(--spacing-half);
 		}
 	}
 

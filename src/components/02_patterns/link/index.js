@@ -11,7 +11,12 @@ const Link = (props) => {
 	}
 
 	return (
-		<El {...props} data-testid='123abc' className='link' target={target}>
+		<El
+			{...props}
+			data-testid='123abc'
+			target={target}
+			className={`link ${props.classes}`}
+		>
 			{props.children}
 		</El>
 	);

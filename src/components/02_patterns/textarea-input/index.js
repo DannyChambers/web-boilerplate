@@ -61,7 +61,7 @@ const TextareaInput = (props) => {
 		<El
 			{...props}
 			data-testid='123abc'
-			className='text-input'
+			className={`textarea-input ${props.classes}`}
 			valid={valid}
 		>
 			<label htmlFor={ID}>{props.label}</label>

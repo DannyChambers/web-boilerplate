@@ -5,7 +5,12 @@ const Heading = (props) => {
 	const tag = props.level ? `h${props.level}` : "h1";
 
 	return (
-		<El as={tag} {...props} data-testid='123abc' className='heading'>
+		<El
+			as={tag}
+			{...props}
+			data-testid='123abc'
+			className={`heading ${props.classes}`}
+		>
 			{props.children}
 		</El>
 	);

@@ -2,16 +2,7 @@ import { Meta, Story, Canvas, Props } from "@storybook/addon-docs";
 
 import PageHeader from "./index.js";
 
-<Meta
-	title='Components/Modules/Page Header'
-	argTypes={{
-		loggedIn: {
-			options: [true, false],
-			defaultValue: false,
-			control: { type: "select" },
-		},
-	}}
-/>
+<Meta title='Components/Modules/Page Header' />
 
 # Page Header
 
@@ -41,24 +32,6 @@ export const Template1 = (args) => <PageHeader {...args} />;
 		}}
 	>
 		{Template1.bind({})}
-	</Story>
-</Canvas>
-
-<br />
-<br />
-
-### Logged in
-
-export const Template2 = (args) => <PageHeader {...args} />;
-
-<Canvas>
-	<Story
-		name='Logged in'
-		args={{
-			loggedIn: true,
-		}}
-	>
-		{Template2.bind({})}
 	</Story>
 </Canvas>
 

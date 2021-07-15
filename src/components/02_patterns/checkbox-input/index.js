@@ -33,7 +33,11 @@ const CheckboxInput = (props) => {
 	};
 
 	return (
-		<El {...props} data-testid='123abc' className='text-input'>
+		<El
+			{...props}
+			data-testid='123abc'
+			className={`checkbox-input ${props.classes}`}
+		>
 			<div className='wrapper'>
 				<label htmlFor={ID}>{props.label}</label>
 				<input

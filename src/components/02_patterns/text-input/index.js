@@ -76,7 +76,7 @@ const TextInput = (props) => {
 		<El
 			{...props}
 			data-testid='123abc'
-			className='text-input'
+			className={`text-input ${props.classes}`}
 			valid={valid}
 		>
 			<label htmlFor={ID}>{props.label}</label>

@@ -8,7 +8,11 @@ import Logo from "../../02_patterns/logo/";
 
 const PageFooter = (props) => {
 	return (
-		<El {...props} data-testid='123abc' className='page-footer'>
+		<El
+			{...props}
+			data-testid='123abc'
+			className={`page-footer ${props.classes}`}
+		>
 			<Layout grid='33_33_33'>
 				<div class='column'>
 					<Logo size='small' />

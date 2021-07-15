@@ -3,7 +3,11 @@ import styled, { css } from "styled-components";
 
 const ButtonGroup = (props) => {
 	return (
-		<El {...props} data-testid='123abc' className='button-group'>
+		<El
+			{...props}
+			data-testid='123abc'
+			className={`button-group ${props.classes}`}
+		>
 			{props.children}
 		</El>
 	);

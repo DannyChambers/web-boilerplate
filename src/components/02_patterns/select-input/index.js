@@ -57,11 +57,10 @@ const SelectInput = (props) => {
 		<El
 			{...props}
 			data-testid='123abc'
-			className='text-input'
 			valid={valid}
+			className={`select-input ${props.classes}`}
 		>
 			<label htmlFor={ID}>{props.label}</label>
-
 			<select
 				id={ID}
 				placeholder={placeholder}
@@ -94,13 +93,11 @@ const SelectInput = (props) => {
 					);
 				})}
 			</select>
-
 			{(() => {
 				if (props.fieldMessage) {
 					return <Paragraph level='3'>{fieldMessage}</Paragraph>;
 				}
 			})()}
-
 			{(() => {
 				if (selected == "Other") {
 					return (

@@ -57,31 +57,6 @@ export const Template1 = (args) => (
 <br />
 <br />
 
-### Logged in
-
-export const Template2 = (args) => (
-	<SiteFooter {...args}>
-		<List level='3'>
-			<li>List item one</li>
-			<li>List item two</li>
-		</List>
-	</SiteFooter>
-);
-
-<Canvas>
-	<Story
-		name='Logged in'
-		args={{
-			loggedIn: true,
-		}}
-	>
-		{Template2.bind({})}
-	</Story>
-</Canvas>
-
-<br />
-<br />
-
 ## Properties
 
 <Props story='Logged Out' />
