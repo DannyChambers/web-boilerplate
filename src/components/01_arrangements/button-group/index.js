@@ -13,6 +13,8 @@ const El = styled.div`
 	overflow: hidden;
 
 	> .button {
+		display: inline-block;
+		width: auto;
 		margin: 0 var(--spacing-half);
 	}
 

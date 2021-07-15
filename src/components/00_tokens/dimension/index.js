@@ -2,7 +2,7 @@ import { css } from "styled-components";
 
 //Breakpoints --
 export const breakpoints = {
-	//Can not be set as native CSS variable for media query use, so exported here
+	//for media query use in Styled Components, can not be used as native CSS variable so exported here
 	breakpoint1: "320px",
 	breakpoint2: "375px",
 	breakpoint3: "768px",
@@ -14,6 +14,15 @@ export const breakpoints = {
 
 const Dimension = css`
 	:root {
+		//Breakpoints --
+		--breakpoint-1: 320px;
+		--breakpoint-2: 375px;
+		--breakpoint-3: 768px;
+		--breakpoint-4: 1024px;
+		--breakpoint-5: 1200px;
+		--breakpoint-6: 1600px;
+		--maximum-page-width: 1200px;
+
 		//Font sizes --
 		--text-size-1: 4.2rem;
 		--line-height-1: 4.8rem;

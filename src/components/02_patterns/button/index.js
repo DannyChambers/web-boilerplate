@@ -7,25 +7,32 @@ const Button = (props) => {
 	const tag = props.href ? "a" : "button";
 
 	return (
-		<El as={tag} {...props} data-testid='123abc' className='button'>
+		<El
+			as={tag}
+			{...props}
+			data-testid='123abc'
+			className={`button ${props.classes}`}
+		>
 			{(() => {
 				if (props.icon && props.size === "small") {
 					return <Icon graphic={props.icon} size='small' />;
-				} else if (props.icon && props.size === "medium") {
-					return <Icon graphic={props.icon} size='medium' />;
 				} else if (props.icon && props.size === "large") {
 					return <Icon graphic={props.icon} size='large' />;
+				} else if (props.icon) {
+					return <Icon graphic={props.icon} size='medium' />;
 				}
 			})()}
-			{props.text}
+			<span className='button-text'>{props.text}</span>
 		</El>
 	);
 };
 
 const El = styled.div`
-	display: inline-block;
+	display: block;
+	width: 100%;
+	max-width: var(--sizing-octuple);
 	font-size: var(--text-size-7);
-	line-height: var(--sizing-full);
+	height: var(--sizing-full);
 	font-family: var(--heading-font);
 	text-transform: uppercase;
 	padding: 0 var(--spacing-double);
@@ -65,7 +72,7 @@ const El = styled.div`
 		css`
 			padding: 0 var(--spacing-full);
 			font-size: var(--text-size-8);
-			line-height: calc(var(--sizing-half) + var(--sizing-quarter));
+			height: calc(var(--sizing-half) + var(--sizing-quarter));
 		`}
 
     ${(props) =>
@@ -73,7 +80,7 @@ const El = styled.div`
 		css`
 			padding: 0 var(--spacing-triple);
 			font-size: var(--text-size-6);
-			line-height: calc(var(--sizing-full) + var(--sizing-quarter));
+			height: calc(var(--sizing-full) + var(--sizing-quarter));
 			border-radius: var(--radius-triple);
 		`}
 
@@ -86,6 +93,7 @@ const El = styled.div`
 			.icon {
 				position: absolute;
 				top: var(--spacing-quarter);
+				/* top: 0; */
 				left: var(--spacing-half);
 
 				svg path {
@@ -127,6 +135,26 @@ const El = styled.div`
 				svg path {
 					fill: var(--text-color-dark);
 				}
+			}
+		`}
+
+
+    ${(props) =>
+		props.iconOnly &&
+		css`
+			padding: 0 calc(var(--spacing-quarter) + var(--spacing-eighth)) 0
+				var(--spacing-quarter);
+
+			.icon {
+				position: static;
+			}
+
+			.button-text {
+				position: absolute;
+				left: -9999px;
+				height: 0;
+				width: 0;
+				overflow: hidden;
 			}
 		`}
 `;

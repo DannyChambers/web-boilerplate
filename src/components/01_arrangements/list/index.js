@@ -8,9 +8,9 @@ const List = (props) => {
 
 	return (
 		<El as={tag} {...props} data-testid='123abc' className='list'>
-			{props.children.map((child) => {
+			{props.children.map((child, index) => {
 				return (
-					<li>
+					<li key={index}>
 						{(() => {
 							if (child.props.graphic) {
 								return (

@@ -4,16 +4,16 @@ const Effect = css`
 	:root {
 		//Transition --
 		--transition-full: 0.4s;
-		--transition-quarter: calc(--transition-full / 4);
-		--transition-half: calc(--transition-full / 2);
-		--transition-double: calc(--transition-full * 2);
-		--transition-triple: calc(--transition-full * 3);
-		--transition-quadruple: calc(--transition-full * 4);
-		--transition-quintuple: calc(--transition-full * 5);
-		--transition-sextuple: calc(--transition-full * 6);
-		--transition-septuple: calc(--transition-full * 7);
-		--transition-octuple: calc(--transition-full * 8);
-		--transition-nonuple: calc(--transition-full * 9);
+		--transition-quarter: calc(var(--transition-full) / 4);
+		--transition-half: calc(var(--transition-full) / 2);
+		--transition-double: calc(var(--transition-full) * 2);
+		--transition-triple: calc(var(--transition-full) * 3);
+		--transition-quadruple: calc(var(--transition-full) * 4);
+		--transition-quintuple: calc(var(--transition-full) * 5);
+		--transition-sextuple: calc(var(--transition-full) * 6);
+		--transition-septuple: calc(var(--transition-full) * 7);
+		--transition-octuple: calc(var(--transition-full) * 8);
+		--transition-nonuple: calc(var(--transition-full) * 9);
 	}
 	//Animation --
 	//Fade in
@@ -26,7 +26,7 @@ const Effect = css`
 		}
 	}
 	.fade-in {
-		animation: fadeIn --transition-double ease-in-out;
+		animation: fadeIn var(--transition-double) ease-in-out;
 	}
 `;
 
