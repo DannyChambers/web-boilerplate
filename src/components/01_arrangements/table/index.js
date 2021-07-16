@@ -71,6 +71,7 @@ const El = styled.div`
 		}
 
 		th {
+			font-family: var(--heading-font);
 			text-transform: capitalize;
 		}
 	}

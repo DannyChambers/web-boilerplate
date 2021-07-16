@@ -110,7 +110,11 @@ const HomePage = (props) => {
 				subheading='This is the Section subheading'
 				backgroundColor={Color.brandcolor7}
 			>
-				<Table data={tableData} />
+				<Layout>
+					<div className='column'>
+						<Table data={tableData} />
+					</div>
+				</Layout>
 			</PageSection>
 			<PageFooter />
 			<SiteFooter>
