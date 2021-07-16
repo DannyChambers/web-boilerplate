@@ -41,13 +41,13 @@ const El = styled.form`
 			font-size: var(--text-size-5);
 			line-height: var(--line-height-5);
 			position: absolute;
-			top: calc(-1 * var(--spacing-threequarters));
+			top: calc(-1 * var(--spacing-full));
 			left: calc(var(--spacing-full) + var(--spacing-half));
 			background: white;
 		}
 	}
 
-	@media (min-width: ${breakpoints.breakpoint3}) {
+	@media (min-width: ${breakpoints.breakpoint3}px) {
 		fieldset {
 			padding: var(--spacing-double) var(--spacing-triple);
 

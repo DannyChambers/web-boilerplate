@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 
 import { generateID } from "../../../utilities";
@@ -17,6 +17,19 @@ const SelectInput = (props) => {
 	if (props.usePlaceholder) {
 		placeholder = props.label;
 	}
+
+	useEffect(() => {
+		if (props.fieldMessage) {
+			setFieldMessage(props.fieldMessage);
+		}
+		if (props.valid) {
+			setValid(true);
+		} else if (props.invalid) {
+			setValid(false);
+		} else {
+			setValid(null);
+		}
+	}, [props.fieldMessage, props.valid]);
 
 	const handleChange = (val) => {
 		console.log("obj.value: ", val);
@@ -180,7 +193,7 @@ const El = styled.div`
 		border-radius: var(--radius-half);
 		height: var(--sizing-full);
 		line-height: var(--sizing-full);
-		padding: 0 var(--spacing-double) 0 var(--spacing-full);
+		padding: 0 var(--spacing-triple) 0 var(--spacing-full);
 		font-family: var(--body-font);
 		font-size: var(--text-size-6);
 		-webkit-appearance: none;
@@ -236,12 +249,12 @@ const El = styled.div`
 		props.valid &&
 		css`
 			.paragraph {
-				color: var(--status--valid);
+				color: var(--status--success);
 			}
 
 			:after,
 			label:after {
-				color: var(--status--valid);
+				color: var(--status--success);
 			}
 		`}
 
@@ -249,12 +262,12 @@ const El = styled.div`
 		props.valid === true &&
 		css`
 			.paragraph {
-				color: var(--status--valid);
+				color: var(--status--success);
 			}
 
 			:after,
 			label:after {
-				color: var(--status--valid);
+				color: var(--status--success);
 			}
 		`}
 
@@ -262,12 +275,12 @@ const El = styled.div`
 		props.valid === false &&
 		css`
 			.paragraph {
-				color: var(--status--invalid);
+				color: var(--status--error);
 			}
 
 			:after,
 			label:after {
-				color: var(--status--invalid);
+				color: var(--status--error);
 			}
 		`}
 `;

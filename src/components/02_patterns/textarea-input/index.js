@@ -15,9 +15,9 @@ const TextareaInput = (props) => {
 		if (props.fieldMessage) {
 			setFieldMessage(props.fieldMessage);
 		}
-		if (props.valid === true) {
+		if (props.valid) {
 			setValid(true);
-		} else if (props.valid === false) {
+		} else if (props.invalid) {
 			setValid(false);
 		} else {
 			setValid(null);
@@ -169,10 +169,11 @@ const El = styled.div`
 		width: 100%;
 		border: 1px solid var(--border-color-1);
 		border-radius: var(--radius-half);
-		line-height: var(--sizing-full);
-		padding: 0 var(--spacing-full);
+		padding: var(--spacing-full) var(--spacing-double) var(--spacing-full)
+			var(--spacing-full);
 		font-family: var(--body-font);
 		font-size: var(--text-size-6);
+		line-height: var(--sizing-half);
 
 		&:hover {
 			border-color: var(--cta-primary);
@@ -219,12 +220,12 @@ const El = styled.div`
 		props.valid === true &&
 		css`
 			> .paragraph {
-				color: var(--status--valid);
+				color: var(--status--success);
 			}
 
 			:after,
 			label:after {
-				color: var(--status--valid);
+				color: var(--status--success);
 			}
 		`}
 
@@ -232,12 +233,12 @@ const El = styled.div`
 		props.valid === false &&
 		css`
 			> .paragraph {
-				color: var(--status--invalid);
+				color: var(--status--error);
 			}
 
 			:after,
 			label:after {
-				color: var(--status--invalid);
+				color: var(--status--error);
 			}
 		`}
 

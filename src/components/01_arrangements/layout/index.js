@@ -17,7 +17,7 @@ const Layout = (props) => {
 const El = styled.div`
 	display: grid;
 	gap: 0 var(--spacing-full);
-	max-width: ${breakpoints.maximumpagewidth};
+	max-width: var(--maximum-page-width);
 	margin: 0 auto;
 	grid-template-columns: 1fr;
 
@@ -25,40 +25,42 @@ const El = styled.div`
 		padding-bottom: var(--spacing-full);
 	}
 
-	@media (min-width: ${breakpoints.breakpoint3}) {
+	@media (min-width: ${breakpoints.breakpoint3}px) {
+		gap: 0 var(--spacing-double);
+		grid-auto-rows: 1fr;
+
 		${(props) =>
 			props.grid === "50_50" &&
 			css`
 				grid-template-columns: 1fr 1fr;
 			`}
-
 		${(props) =>
 			props.grid === "40_60" &&
 			css`
 				grid-template-columns: 4.8fr 7.2fr;
 			`}
-
-        ${(props) =>
+			${(props) =>
 			props.grid === "60_40" &&
 			css`
 				grid-template-columns: 7.2fr 4.8fr;
 			`}
-
-        ${(props) =>
+			${(props) =>
 			props.grid === "33_33_33" &&
 			css`
 				grid-template-columns: 4fr 4fr 4fr;
 			`}
-
-        ${(props) =>
+			${(props) =>
 			props.grid === "25_25_25_25" &&
 			css`
 				grid-template-columns: 3fr 3fr 3fr 3fr;
-			`}
+			`};
 	}
 
-	@media only screen and (min-width: ${breakpoints.breakpoint3}) and (max-width: ${breakpoints.breakpoint6}) {
+	@media only screen and (min-width: ${breakpoints.breakpoint3}px) and (max-width: ${breakpoints.breakpoint4 -
+		1}px) {
 		//If you have provided the 'breakdown' attribute to Layout, it will move to a 2x2 layout where appropriate.
+		grid-auto-rows: 1fr;
+
 		${(props) =>
 			props.breakdown &&
 			css`
@@ -97,7 +99,7 @@ const El = styled.div`
 					css`
 						grid-template-columns: 1fr 1fr;
 					`}
-			`}
+			`};
 	}
 `;
 

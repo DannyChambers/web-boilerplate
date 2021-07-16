@@ -20,15 +20,16 @@ const SiteFooter = (props) => {
 
 const El = styled.div`
 	background: var(--brand-color-1);
-	padding: var(--spacing-full);
+	padding: var(--spacing-double);
 	color: var(--text-color-light);
 
 	.list {
 		text-align: center;
-		padding-bottom: var(--spacing-half);
+		padding-bottom: var(--spacing-full);
 
 		li {
 			display: inline-block;
+			line-height: var(--sizing-half);
 			margin: 0 var(--spacing-half);
 		}
 	}

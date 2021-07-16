@@ -16,6 +16,9 @@ const Icon = (props) => {
 		case "large":
 			sizeAsNumber = 38;
 			break;
+		case "xlarge":
+			sizeAsNumber = 46;
+			break;
 		default:
 			sizeAsNumber = 30;
 			break;

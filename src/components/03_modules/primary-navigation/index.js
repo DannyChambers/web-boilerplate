@@ -49,25 +49,25 @@ const PrimaryNavigation = (props) => {
 				<List level='1'>
 					<li>
 						<a href='#'>
-							<Icon graphic='magic-wand' size='large' />
+							<Icon graphic='magic-wand' />
 							Menu item
 						</a>
 					</li>
 					<li>
 						<a href='#'>
-							<Icon graphic='paint-roller' size='large' />
+							<Icon graphic='paint-roller' />
 							Menu item
 						</a>
 					</li>
 					<li>
 						<a href='#'>
-							<Icon graphic='pencil-ruler' size='large' />
+							<Icon graphic='pencil-ruler' />
 							Menu item
 						</a>
 					</li>
 					<li>
 						<a href='#'>
-							<Icon graphic='umbrella' size='large' />
+							<Icon graphic='umbrella' />
 							Menu item
 						</a>
 					</li>
@@ -76,13 +76,13 @@ const PrimaryNavigation = (props) => {
 				<List level='1'>
 					<li>
 						<a href='#'>
-							<Icon graphic='paint-roller' size='large' />
+							<Icon graphic='paint-roller' />
 							My Account
 						</a>
 					</li>
 					<li>
 						<a href='#'>
-							<Icon graphic='magic-wand' size='large' />
+							<Icon graphic='magic-wand' />
 							Settings
 						</a>
 					</li>
@@ -156,14 +156,14 @@ const El = styled.div`
 					}
 
 					.icon {
-						transform: scale(0.7);
+						margin-right: var(--spacing-full);
 					}
 				}
 			}
 		}
 	}
 
-	@media (min-width: ${breakpoints.breakpoint4}) {
+	@media (min-width: ${breakpoints.breakpoint4}px) {
 		.primary-navigation_trigger {
 			display: none;
 		}
@@ -202,7 +202,6 @@ const El = styled.div`
 							top: var(--spacing-full);
 							left: 50%;
 							margin-left: -17px;
-							transform: scale(1);
 						}
 
 						&:hover {

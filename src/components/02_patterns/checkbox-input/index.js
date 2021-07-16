@@ -147,11 +147,11 @@ const El = styled.div`
 		props.valid &&
 		css`
 			.paragraph {
-				color: var(--status--valid);
+				color: var(--status--success);
 			}
 
 			.wrapper label:after {
-				color: var(--status--valid);
+				color: var(--status--success);
 			}
 		`}
 
@@ -171,11 +171,11 @@ const El = styled.div`
 		props.invalid &&
 		css`
 			.paragraph {
-				color: var(--status--invalid);
+				color: var(--status--error);
 			}
 
 			.wrapper label:after {
-				color: var(--status--invalid);
+				color: var(--status--error);
 			}
 		`}
 `;

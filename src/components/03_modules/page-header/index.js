@@ -24,7 +24,7 @@ const El = styled.div`
 	background: var(--brand-color-7);
 	padding: var(--spacing-double);
 
-	@media (min-width: ${breakpoints.breakpoint4}) {
+	@media (min-width: ${breakpoints.breakpoint4}px) {
 		.logo {
 			float: left;
 			margin: var(--spacing-full);

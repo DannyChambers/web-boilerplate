@@ -49,9 +49,27 @@ export const Template2 = (args) => (
 <br />
 <br />
 
-### Valid state
+### With character count
 
 export const Template3 = (args) => (
+	<TextareaInput
+		label='Lorem ipsum dolor'
+		usePlaceholder
+		required
+		characterLimit='400'
+	/>
+);
+
+<Canvas>
+	<Story name='With character count'>{Template3.bind({})}</Story>
+</Canvas>
+
+<br />
+<br />
+
+### Valid state
+
+export const Template4 = (args) => (
 	<TextareaInput
 		label='Lorem ipsum dolor'
 		usePlaceholder
@@ -62,7 +80,7 @@ export const Template3 = (args) => (
 );
 
 <Canvas>
-	<Story name='Valid'>{Template3.bind({})}</Story>
+	<Story name='Valid'>{Template4.bind({})}</Story>
 </Canvas>
 
 <br />
@@ -70,7 +88,7 @@ export const Template3 = (args) => (
 
 ### Invalid state
 
-export const Template4 = (args) => (
+export const Template5 = (args) => (
 	<TextareaInput
 		label='Lorem ipsum dolor'
 		usePlaceholder
@@ -81,7 +99,7 @@ export const Template4 = (args) => (
 );
 
 <Canvas>
-	<Story name='Invalid'>{Template4.bind({})}</Story>
+	<Story name='Invalid'>{Template5.bind({})}</Story>
 </Canvas>
 
 <br />

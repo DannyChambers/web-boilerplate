@@ -14,10 +14,11 @@ const PageFooter = (props) => {
 			className={`page-footer ${props.classes}`}
 		>
 			<Layout grid='33_33_33'>
-				<div class='column'>
+				<div className='column'>
 					<Logo size='small' />
 				</div>
-				<div class='column'>
+				<div className='column' level='2' appearance='5'>
+					{" "}
 					<Heading level='2' appearance='5'>
 						Column one
 					</Heading>
@@ -28,7 +29,7 @@ const PageFooter = (props) => {
 						<li graphic='umbrella'>List item four</li>
 					</List>
 				</div>
-				<div class='column'>
+				<div className='column'>
 					<Heading level='2' appearance='5'>
 						Column two
 					</Heading>
@@ -45,7 +46,7 @@ const PageFooter = (props) => {
 };
 
 const El = styled.div`
-	background: var(--brand-color-7);
+	background: var(--brand-color-6);
 	padding: var(--spacing-double);
 	min-height: 150px;
 `;

@@ -2,45 +2,26 @@ import { css } from "styled-components";
 
 //Breakpoints --
 export const breakpoints = {
-	//for media query use in Styled Components, can not be used as native CSS variable so exported here
-	breakpoint1: "320px",
-	breakpoint2: "375px",
-	breakpoint3: "768px",
-	breakpoint4: "1024px",
-	breakpoint5: "1200px",
-	breakpoint6: "1600px",
-	maximumpagewidth: "1200px",
+	//for media query use in Styled Components, can not be used as native CSS variable so additionally exported here as the global 'breakpoints' object.
+	breakpoint1: 320,
+	breakpoint2: 375,
+	breakpoint3: 768,
+	breakpoint4: 1024,
+	breakpoint5: 1200,
+	breakpoint6: 1600,
+	maximumPageWidth: 1200,
 };
 
 const Dimension = css`
 	:root {
 		//Breakpoints --
-		--breakpoint-1: 320px;
-		--breakpoint-2: 375px;
-		--breakpoint-3: 768px;
-		--breakpoint-4: 1024px;
-		--breakpoint-5: 1200px;
-		--breakpoint-6: 1600px;
-		--maximum-page-width: 1200px;
-
-		//Font sizes --
-		--text-size-1: 4.2rem;
-		--line-height-1: 4.8rem;
-		--text-size-2: 3.6rem;
-		--line-height-2: 4rem;
-		--text-size-3: 2.8rem;
-		--line-height-3: 3.2rem;
-		--text-size-4: 2.4rem;
-		--line-height-4: 2.8rem;
-		--text-size-5: 2rem;
-		--line-height-5: 2.4rem;
-
-		--text-size-6: 1.8rem;
-		--line-height-6: 2.4rem;
-		--text-size-7: 1.6rem;
-		--line-height-7: 2rem;
-		--text-size-8: 1.4rem;
-		--line-height-8: 1.8rem;
+		--breakpoint-1: ${breakpoints.breakpoint1}px;
+		--breakpoint-2: ${breakpoints.breakpoint2}px;
+		--breakpoint-3: ${breakpoints.breakpoint3}px;
+		--breakpoint-4: ${breakpoints.breakpoint4}px;
+		--breakpoint-5: ${breakpoints.breakpoint5}px;
+		--breakpoint-6: ${breakpoints.breakpoint6}px;
+		--maximum-page-width: ${breakpoints.maximumPageWidth}px;
 
 		//Sizing --
 		--sizing-full: 44px;

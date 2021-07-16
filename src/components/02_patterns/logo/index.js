@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+import { breakpoints } from "../../00_tokens/dimension";
+
 const Logo = (props) => {
 	let tag = "h1";
 
@@ -27,18 +29,18 @@ const El = styled.div`
 	stroke: red;
 	fill: none;
 	display: block;
-	width: 75px;
+	width: 50px;
 
 	${(props) =>
 		props.size === "small" &&
 		css`
-			width: 50px;
+			width: 35px;
 		`}
 
 	${(props) =>
 		props.size === "large" &&
 		css`
-			width: 100px;
+			width: 75px;
 		`}
 
     span {
@@ -47,6 +49,22 @@ const El = styled.div`
 		position: absolute;
 		top: -9999px;
 		overflow: hidden;
+	}
+
+	@media (min-width: ${breakpoints.breakpoint4}px) {
+		width: 75px;
+
+		${(props) =>
+			props.size === "small" &&
+			css`
+				width: 50px;
+			`}
+
+		${(props) =>
+			props.size === "large" &&
+			css`
+				width: 100px;
+			`}
 	}
 `;
 

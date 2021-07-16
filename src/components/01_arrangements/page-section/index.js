@@ -18,27 +18,29 @@ const PageSection = (props) => {
 			{(() => {
 				if (props.heading) {
 					return (
-						<Heading
-							level='2'
-							alignment='center'
-							className='page-section_title'
-						>
-							{props.heading}
-						</Heading>
-					);
-				}
-			})()}
+						<div className='page-section_heading-container'>
+							<Heading
+								level='2'
+								alignment='center'
+								className='page-section_title'
+							>
+								{props.heading}
+							</Heading>
 
-			{(() => {
-				if (props.subheading) {
-					return (
-						<Paragraph
-							level='2'
-							alignment='center'
-							className='page-section_subtitle'
-						>
-							{props.subheading}
-						</Paragraph>
+							{(() => {
+								if (props.subheading) {
+									return (
+										<Paragraph
+											level='2'
+											alignment='center'
+											className='page-section_subtitle'
+										>
+											{props.subheading}
+										</Paragraph>
+									);
+								}
+							})()}
+						</div>
 					);
 				}
 			})()}
@@ -63,6 +65,10 @@ const El = styled.div`
 		}
 	}};
 
+	.page-section_heading-container {
+		padding-bottom: var(--spacing-double);
+	}
+
 	.page-section_title {
 		padding-bottom: var(--spacing-half);
 	}
@@ -71,7 +77,7 @@ const El = styled.div`
 		padding-bottom: var(--spacing-full);
 	}
 
-	@media (min-width: ${breakpoints.breakpoint4}) {
+	@media (min-width: ${breakpoints.breakpoint4}px) {
 		padding: var(--spacing-double);
 
 		.page-section_subtitle {
