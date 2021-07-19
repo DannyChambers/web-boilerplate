@@ -7,10 +7,14 @@ import PageSection from "../../01_arrangements/page-section/";
 import Layout from "../../01_arrangements/layout/";
 import PageFooter from "../../03_modules/page-footer/";
 import Card from "../../01_arrangements/card/";
+import Heading from "../../01_arrangements/heading/";
 import Paragraph from "../../01_arrangements/paragraph/";
 import SiteFooter from "../../03_modules/site-footer/";
 import List from "../../01_arrangements/list/";
 import Table from "../../01_arrangements/table/";
+import Link from "../../02_patterns/link/";
+
+import bannerImage1 from "../../../assets/images/banner-1.png";
 
 const HomePage = (props) => {
 	const tableData = [
@@ -108,6 +112,7 @@ const HomePage = (props) => {
 			<PageSection
 				heading='This is the Section heading'
 				subheading='This is the Section subheading'
+				headingAlignment='left'
 				backgroundColor={Color.brandcolor7}
 			>
 				<Layout>
@@ -116,12 +121,33 @@ const HomePage = (props) => {
 					</div>
 				</Layout>
 			</PageSection>
+			<PageSection variant='full-page' backgroundImage={bannerImage1}>
+				<Layout grid='50_50' breakdown>
+					<div className='column'>
+						<Heading level='2'>
+							An even longer card title here with lots of text
+						</Heading>
+						<Paragraph level='1'>
+							Lorem ipsum dolor sit amet, consectetur adipiscing
+							elit. Sed cursus condimentum tempus, Ut dapibus sed
+							nunc non semper.
+						</Paragraph>
+					</div>
+					<div className='column'></div>
+				</Layout>
+			</PageSection>
 			<PageFooter />
 			<SiteFooter>
 				<List level='3'>
-					<li>List item one</li>
-					<li>List item two</li>
-					<li>List item three</li>
+					<li>
+						<Link href='#'>List item one</Link>
+					</li>
+					<li>
+						<Link href='#'>List item two</Link>
+					</li>
+					<li>
+						<Link href='#'>List item three</Link>
+					</li>
 				</List>
 			</SiteFooter>
 		</div>

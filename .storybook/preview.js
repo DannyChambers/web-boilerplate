@@ -20,9 +20,8 @@ export const parameters = {
 	options: {
 		storySort: {
 			order: [
-				"Introduction",
-				"Device support",
-				"Accessibility",
+				"Documentation",
+				["Introduction", "Device support", "Accessibility"],
 				"Components",
 				[
 					"About components",

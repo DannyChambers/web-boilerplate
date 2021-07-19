@@ -31,6 +31,15 @@ const El = styled.div`
 			display: inline-block;
 			line-height: var(--sizing-half);
 			margin: 0 var(--spacing-half);
+
+			.link {
+				color: var(--text-color-light);
+				text-decoration-color: var(--text-color-light);
+
+				&:hover {
+					text-decoration-color: transparent;
+				}
+			}
 		}
 	}
 
