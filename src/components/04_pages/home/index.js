@@ -13,8 +13,12 @@ import SiteFooter from "../../03_modules/site-footer/";
 import List from "../../01_arrangements/list/";
 import Table from "../../01_arrangements/table/";
 import Link from "../../02_patterns/link/";
+import Image from "../../02_patterns/image/";
+import InteractiveBanner from "../../03_modules/interactive-banner/";
 
 import bannerImage1 from "../../../assets/images/banner-1.png";
+import footerIllustrationWEBP from "../../../assets/images/footer-illustration/footer-illustration.webp";
+import footerIllustrationSVG from "../../../assets/images/footer-illustration/footer-illustration.svg";
 
 const HomePage = (props) => {
 	const tableData = [
@@ -69,6 +73,7 @@ const HomePage = (props) => {
 			className={`home-page ${props.classes}`}
 		>
 			<PageHeader />
+			<InteractiveBanner />
 			<PageSection
 				heading='This is the Section heading'
 				subheading='This is the Section subheading'
@@ -134,6 +139,16 @@ const HomePage = (props) => {
 						</Paragraph>
 					</div>
 					<div className='column'></div>
+				</Layout>
+			</PageSection>
+			<PageSection>
+				<Layout>
+					<div className='column'>
+						<Image
+							srcWEBP={footerIllustrationWEBP}
+							srcSVG={footerIllustrationSVG}
+						/>
+					</div>
 				</Layout>
 			</PageSection>
 			<PageFooter />

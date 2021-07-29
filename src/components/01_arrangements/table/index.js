@@ -13,7 +13,7 @@ const Table = (props) => {
 			data-testid='123abc'
 			className={`table ${props.classes}`}
 		>
-			<table cellpadding='0' cellspacing='0'>
+			<table cellPadding='0' cellSpacing='0'>
 				<thead>
 					<tr>
 						{headings.map((item, index) => {
@@ -24,7 +24,7 @@ const Table = (props) => {
 				<tbody>
 					{props.data.map((item, index) => {
 						return (
-							<tr>
+							<tr key={`_${index}`}>
 								{headings.map((property) => {
 									return (
 										<td key={`_${property}`}>
