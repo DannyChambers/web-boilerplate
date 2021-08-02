@@ -66,7 +66,7 @@ const PageFooter = (props) => {
 	);
 };
 
-const El = styled.div`
+const El = styled.footer`
 	min-height: 50vh;
 	background: var(--brand-color-6);
 	padding: var(--spacing-double) var(--spacing-full) var(--spacing-triple)

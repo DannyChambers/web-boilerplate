@@ -20,7 +20,7 @@ const PageHeader = (props) => {
 	);
 };
 
-const El = styled.div`
+const El = styled.header`
 	background: var(--brand-color-7);
 	padding: var(--spacing-double);
 
