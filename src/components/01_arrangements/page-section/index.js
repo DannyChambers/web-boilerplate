@@ -52,7 +52,7 @@ const PageSection = (props) => {
 	);
 };
 
-const El = styled.div`
+const El = styled.section`
 	background: ${(props) => props.backgroundColor};
 	padding: var(--spacing-double) var(--spacing-full) var(--spacing-triple)
 		var(--spacing-full);
