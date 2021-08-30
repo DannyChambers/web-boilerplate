@@ -62,7 +62,7 @@ const El = styled.div`
 			border-width: 0 1px 1px 0;
 			padding: var(--spacing-half) var(--spacing-full);
 			text-align: left;
-			font-family: var(--body-font);
+			font-family: var(--regular-font);
 			font-size: var(--text-size-7);
 
 			&:last-child {
@@ -71,7 +71,7 @@ const El = styled.div`
 		}
 
 		th {
-			font-family: var(--heading-font);
+			font-family: var(--bold-font);
 			text-transform: capitalize;
 		}
 	}

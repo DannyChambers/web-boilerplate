@@ -1,12 +1,12 @@
 import { Meta, Story, Canvas, Props } from '@storybook/addon-docs'
 
-import CheckboxInput from './index.js'
+import RadiobuttonInput from './index.js'
 
-<Meta title="Components/Patterns/Checkbox Input" />
+<Meta title="Components/Patterns/Radiobutton Input" />
 
 # Link
 
-The CheckboxInput component is a Pattern that..
+The RadiobuttonInput component is a Pattern that..
 
 <br />
 <br />
@@ -26,7 +26,7 @@ Lorem ipsum dolor sit etiet..
 ### Default
 
 export const Template1 = (args) => (
-  <CheckboxInput label="Lorem ipsum dolor" required />
+  <RadiobuttonInput label="Lorem ipsum dolor" required />
 )
 
 <Canvas>
@@ -39,7 +39,7 @@ export const Template1 = (args) => (
 ### Invalid state
 
 export const Template4 = (args) => (
-  <CheckboxInput
+  <RadiobuttonInput
     label="Lorem ipsum dolor"
     fieldMessage="This field is required"
     required

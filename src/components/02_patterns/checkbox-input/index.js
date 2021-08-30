@@ -1,13 +1,12 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { generateID } from "../../../utilities";
+import { generateID } from "../../05_utilities";
 
 import Paragraph from "../../01_arrangements/paragraph";
 
 const CheckboxInput = (props) => {
 	const ID = generateID();
-
 	let placeholder;
 
 	if (props.usePlaceholder) {
@@ -15,20 +14,20 @@ const CheckboxInput = (props) => {
 	}
 
 	const handleChange = (val) => {
-		if (props.onChange) {
-			props.onChange(val);
+		if (props.change) {
+			props.change(val);
 		}
 	};
 
 	const handleFocus = (val) => {
-		if (props.onFocus) {
-			props.onFocus(val);
+		if (props.focus) {
+			props.focus(val);
 		}
 	};
 
 	const handleBlur = (val) => {
-		if (props.onBlur) {
-			props.onBlur(val);
+		if (props.blur) {
+			props.blur(val);
 		}
 	};
 
@@ -49,13 +48,25 @@ const CheckboxInput = (props) => {
 					checked={props.selected}
 					disabled={props.disabled}
 					onChange={(e) => {
-						handleChange(e.target.value);
+						handleChange({
+							name: props.name,
+							value: e.target.value,
+							valid: "true",
+						});
 					}}
 					onFocus={(e) => {
-						handleFocus(e.target.value);
+						handleFocus({
+							name: props.name,
+							value: e.target.value,
+							valid: "true",
+						});
 					}}
 					onBlur={(e) => {
-						handleBlur(e.target.value);
+						handleBlur({
+							name: props.name,
+							value: e.target.value,
+							valid: "true",
+						});
 					}}
 				/>
 			</div>
@@ -74,7 +85,7 @@ const CheckboxInput = (props) => {
 
 const El = styled.div`
 	min-height: var(--sizing-full);
-	padding-top: var(--sizing-quarter);
+	padding-bottom: var(--sizing-half);
 
 	.wrapper {
 		padding-left: calc(var(--sizing-half) + var(--spacing-half));
@@ -82,9 +93,9 @@ const El = styled.div`
 
 		label {
 			display: block;
-			font-family: var(--body-font);
-			font-size: var(--text-size-6);
-			line-height: normal;
+			font-family: var(--regular-font);
+			font-size: var(--text-size-8);
+			line-height: var(--line-height-8);
 			cursor: pointer;
 			max-width: 75ch; //Max 75 characters for optimum readability
 
@@ -95,7 +106,7 @@ const El = styled.div`
 						display: inline-block;
 						padding: var(--spacing-quarter);
 						content: "*";
-						font-family: var(--body-font);
+						font-family: var(--regular-font);
 						font-size: 20px;
 						color: var(--status--information);
 					}
@@ -111,11 +122,12 @@ const El = styled.div`
 			line-height: var(--sizing-full);
 			padding: 0 var(--spacing-full);
 			position: absolute;
-			top: calc(var(--spacing-quarter) - var(--spacing-eighth));
+			/* top: calc(var(--spacing-quarter) - var(--spacing-eighth)); */
+			top: 0;
 			left: 0;
 
 			&:hover {
-				border-color: var(--cta-primary);
+				border-color: var(---border-color-2);
 			}
 
 			&:focus {
@@ -142,42 +154,6 @@ const El = styled.div`
 		padding: var(--spacing-half) 0 0 0;
 		color: var(--status--information);
 	}
-
-	${(props) =>
-		props.valid &&
-		css`
-			.paragraph {
-				color: var(--status--success);
-			}
-
-			.wrapper label:after {
-				color: var(--status--success);
-			}
-		`}
-
-	${(props) =>
-		props.warning &&
-		css`
-			.paragraph {
-				color: var(--status--warning);
-			}
-
-			.wrapper label:after {
-				color: var(--status--warning);
-			}
-		`}
-
-	${(props) =>
-		props.invalid &&
-		css`
-			.paragraph {
-				color: var(--status--error);
-			}
-
-			.wrapper label:after {
-				color: var(--status--error);
-			}
-		`}
 `;
 
 export default CheckboxInput;

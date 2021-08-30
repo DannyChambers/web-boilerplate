@@ -23,7 +23,7 @@ const Link = (props) => {
 };
 
 const El = styled.a`
-	font-family: var(--body-font);
+	font-family: var(--regular-font);
 	color: var(--cta-primary);
 	text-decoration: underline;
 	text-decoration-color: var(--cta-primary);

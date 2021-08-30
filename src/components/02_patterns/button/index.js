@@ -33,7 +33,7 @@ const El = styled.div`
 	max-width: var(--sizing-octuple);
 	font-size: var(--text-size-7);
 	height: var(--sizing-full);
-	font-family: var(--heading-font);
+	font-family: var(--bold-font);
 	text-transform: uppercase;
 	padding: 0 var(--spacing-double);
 	text-align: center;

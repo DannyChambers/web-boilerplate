@@ -1,8 +1,8 @@
-import { Meta, Story, Canvas, Props } from "@storybook/addon-docs";
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs'
 
-import SelectInput from "./index.js";
+import SelectInput from './index.js'
 
-<Meta title='Components/Patterns/Select Input' />
+<Meta title="Components/Patterns/Select Input" />
 
 # Select Input
 
@@ -26,23 +26,23 @@ Lorem ipsum dolor sit etiet..
 ### Default
 
 export const Template1 = (args) => (
-	<SelectInput
-		label='Choose an option'
-		required
-		options={[
-			"Option one",
-			"Option two",
-			"Option three",
-			"Option four",
-			"Option five",
-			"Option six",
-			"Other",
-		]}
-	/>
-);
+  <SelectInput
+    label="Choose an option"
+    required
+    options={[
+      'Option one',
+      'Option two',
+      'Option three',
+      'Option four',
+      'Option five',
+      'Option six',
+      'Other',
+    ]}
+  />
+)
 
 <Canvas>
-	<Story name='Default'>{Template1.bind({})}</Story>
+  <Story name="Default">{Template1.bind({})}</Story>
 </Canvas>
 
 <br />
@@ -51,23 +51,23 @@ export const Template1 = (args) => (
 ### Using a Placeholder
 
 export const Template2 = (args) => (
-	<SelectInput
-		label='Choose an option'
-		usePlaceholder
-		required
-		options={[
-			"Option one",
-			"Option two",
-			"Option three",
-			"Option four",
-			"Option five",
-			"Option six",
-		]}
-	/>
-);
+  <SelectInput
+    label="Choose an option"
+    usePlaceholder
+    required
+    options={[
+      'Option one',
+      'Option two',
+      'Option three',
+      'Option four',
+      'Option five',
+      'Option six',
+    ]}
+  />
+)
 
 <Canvas>
-	<Story name='Placeholder'>{Template2.bind({})}</Story>
+  <Story name="Placeholder">{Template2.bind({})}</Story>
 </Canvas>
 
 <br />
@@ -76,25 +76,25 @@ export const Template2 = (args) => (
 ### Valid state
 
 export const Template3 = (args) => (
-	<SelectInput
-		label='Choose an option'
-		usePlaceholder
-		fieldMessage='This field is required'
-		required
-		valid
-		options={[
-			"Option one",
-			"Option two",
-			"Option three",
-			"Option four",
-			"Option five",
-			"Option six",
-		]}
-	/>
-);
+  <SelectInput
+    label="Choose an option"
+    usePlaceholder
+    fieldMessage="This field is required"
+    required
+    valid
+    options={[
+      'Option one',
+      'Option two',
+      'Option three',
+      'Option four',
+      'Option five',
+      'Option six',
+    ]}
+  />
+)
 
 <Canvas>
-	<Story name='Valid'>{Template3.bind({})}</Story>
+  <Story name="Valid">{Template3.bind({})}</Story>
 </Canvas>
 
 <br />
@@ -103,25 +103,25 @@ export const Template3 = (args) => (
 ### Invalid state
 
 export const Template4 = (args) => (
-	<SelectInput
-		label='Choose an option'
-		usePlaceholder
-		fieldMessage='This field is required'
-		required
-		invalid
-		options={[
-			"Option one",
-			"Option two",
-			"Option three",
-			"Option four",
-			"Option five",
-			"Option six",
-		]}
-	/>
-);
+  <SelectInput
+    label="Choose an option"
+    usePlaceholder
+    fieldMessage="This field is required"
+    required
+    invalid
+    options={[
+      'Option one',
+      'Option two',
+      'Option three',
+      'Option four',
+      'Option five',
+      'Option six',
+    ]}
+  />
+)
 
 <Canvas>
-	<Story name='Invalid'>{Template4.bind({})}</Story>
+  <Story name="Invalid">{Template4.bind({})}</Story>
 </Canvas>
 
 <br />
@@ -129,7 +129,7 @@ export const Template4 = (args) => (
 
 ## Properties
 
-<Props story='Default' />
+<Props story="Default" />
 
 <br />
 <br />

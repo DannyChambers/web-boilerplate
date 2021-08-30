@@ -8,7 +8,7 @@ import TextInput from "../../02_patterns/text-input/";
 import TextareaInput from "../../02_patterns/textarea-input/";
 import SelectInput from "../../02_patterns/select-input/";
 import CheckboxInput from "../../02_patterns/checkbox-input/";
-import RadiobuttonInput from "../../02_patterns/radiobutton-input/";
+import RadiobuttonsInput from "../../02_patterns/radiobuttons-input/";
 import Button from "../../02_patterns/button/";
 
 <Meta title='Components/Arrangements/Form' />
@@ -120,14 +120,13 @@ export const Template1 = (args) => {
 						/>
 					</Fieldset>
 					<Fieldset legend='Marketing preferences'>
-						<RadiobuttonInput
-							label='I wish to subscribe to marketing communications'
-							name='_12345678901'
-						/>
-						<RadiobuttonInput
-							label='I DO NOT wish to subscribe to marketing communications'
-							name='_12345678901'
-							selected
+						<Radiobuttons
+							label='No'
+							name='_1234567gggtt890'
+							options={[
+								{ value: "no", label: "No" },
+								{ value: "yes", label: "Yes" },
+							]}
 						/>
 					</Fieldset>
 					<ButtonGroup alignment='right'>

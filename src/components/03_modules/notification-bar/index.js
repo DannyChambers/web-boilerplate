@@ -24,7 +24,7 @@ const El = styled.p`
 	width: 100%;
 	font-size: var(--text-size-7);
 	line-height: var(--sizing-full);
-	font-family: var(--body-font);
+	font-family: var(--regular-font);
 	padding: 0 var(--spacing-double);
 	text-align: center;
 	background-color: var(--status--information);

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 
-import { generateID } from "../../../utilities";
+import { generateID } from "../../05_utilities";
 
 import Paragraph from "../../01_arrangements/paragraph";
 import TextInput from "../../02_patterns/text-input";
+import Icon from "../../02_patterns/icon";
 
 const SelectInput = (props) => {
 	const [selected, setSelected] = useState(null);
@@ -32,7 +33,6 @@ const SelectInput = (props) => {
 	}, [props.fieldMessage, props.valid]);
 
 	const handleChange = (val) => {
-		console.log("obj.value: ", val);
 		if (
 			(props.required && !val) ||
 			(props.required && val === "") ||
@@ -49,20 +49,20 @@ const SelectInput = (props) => {
 			setSelected(val);
 		}
 
-		if (props.onChange) {
-			props.onChange(val);
+		if (props.change) {
+			props.change(val);
 		}
 	};
 
 	const handleFocus = (val) => {
-		if (props.onFocus) {
-			props.onFocus(val);
+		if (props.focus) {
+			props.focus(val);
 		}
 	};
 
 	const handleBlur = (val) => {
-		if (props.onBlur) {
-			props.onBlur(val);
+		if (props.blur) {
+			props.blur(val);
 		}
 	};
 
@@ -74,20 +74,34 @@ const SelectInput = (props) => {
 			className={`select-input ${props.classes}`}
 		>
 			<label htmlFor={ID}>{props.label}</label>
+			<Icon graphic='chevron-down' size='small' />
 			<select
 				id={ID}
 				placeholder={placeholder}
 				name={props.name}
 				value={props.value}
 				disabled={props.disabled}
+				aria-label={props.ariaLabel}
 				onChange={(e) => {
-					handleChange(e.target.value);
+					handleChange({
+						name: props.name,
+						value: e.target.value,
+						valid: valid,
+					});
 				}}
 				onFocus={(e) => {
-					handleFocus(e.target.value);
+					handleFocus({
+						name: props.name,
+						value: e.target.value,
+						valid: valid,
+					});
 				}}
 				onBlur={(e) => {
-					handleBlur(e.target.value);
+					handleBlur({
+						name: props.name,
+						value: e.target.value,
+						valid: valid,
+					});
 				}}
 			>
 				{(() => {
@@ -100,8 +114,8 @@ const SelectInput = (props) => {
 
 				{props.options.map((option, index) => {
 					return (
-						<option value={option} key={`_${index}`}>
-							{option}
+						<option value={option.value} key={`_${index}`}>
+							{option.label}
 						</option>
 					);
 				})}
@@ -114,11 +128,28 @@ const SelectInput = (props) => {
 			{(() => {
 				if (selected == "Other") {
 					return (
-						<TextInput
-							label='Please specify..'
-							name={`${props.name}_other`}
-							onChange={handleChange}
-						/>
+						<div className='specify'>
+							{(() => {
+								if (props.usePlaceholder) {
+									return (
+										<TextInput
+											label='Please specify..'
+											name={`${props.name}_other`}
+											onChange={handleChange}
+											usePlaceholder
+										/>
+									);
+								} else {
+									return (
+										<TextInput
+											label='Please specify..'
+											name={`${props.name}_other`}
+											onChange={handleChange}
+										/>
+									);
+								}
+							})()}
+						</div>
 					);
 				}
 			})()}
@@ -131,11 +162,18 @@ const El = styled.div`
 
 	label {
 		display: block;
-		font-family: var(--body-font);
-		font-size: var(--text-size-6);
+		font-family: var(--regular-font);
+		font-size: var(--text-size-8);
 		line-height: var(--sizing-full);
 		cursor: pointer;
 		max-width: 75ch; //Max 75 characters for optimum readability
+	}
+
+	.icon {
+		position: absolute;
+		bottom: var(--spacing-threequarters);
+		right: var(--spacing-full);
+		z-index: 1;
 	}
 
 	${(props) =>
@@ -160,7 +198,7 @@ const El = styled.div`
 						position: absolute;
 						top: 0;
 						right: var(--spacing-quarter);
-						font-family: var(--body-font);
+						font-family: var(--regular-font);
 						font-size: 20px;
 						color: var(--status--information);
 					}
@@ -175,10 +213,27 @@ const El = styled.div`
 					display: inline-block;
 					padding: var(--spacing-quarter);
 					content: "*";
-					font-family: var(--body-font);
-					font-size: 20px;
+					font-family: var(--regular-font);
+					font-size: var(--text-size-5);
 					color: var(--status--information);
 				}
+			}
+
+			.text-input label:after {
+				display: none;
+			}
+		`}
+
+    ${(props) =>
+		props.hideLabel &&
+		css`
+			label {
+				position: absolute;
+				top: -9999px;
+				left: -9999px;
+				height: 0;
+				width: 0;
+				overflow: none;
 			}
 
 			.text-input label:after {
@@ -190,27 +245,24 @@ const El = styled.div`
 		display: block;
 		width: 100%;
 		border: 1px solid var(--border-color-1);
-		border-radius: var(--radius-half);
 		height: var(--sizing-full);
 		line-height: var(--sizing-full);
 		padding: 0 var(--spacing-triple) 0 var(--spacing-full);
-		font-family: var(--body-font);
-		font-size: var(--text-size-6);
+		font-family: var(--regular-font);
+		font-size: var(--text-size-8);
 		-webkit-appearance: none;
 		-moz-appearance: none;
-		background: white;
-		background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-		background-repeat: no-repeat;
-		background-position-x: 99%;
-		background-position-y: 10px;
+		background-color: transparent;
+		position: relative;
+		z-index: 2;
 
 		&:hover {
-			border-color: var(--cta-primary);
+			border-color: var(---border-color-2);
 		}
 
 		&:focus {
-			outline: var(--cta-primary--active);
-			border-color: var(--cta-primary--active);
+			outline: var(--border-color--active);
+			border-color: var(--border-color--active);
 		}
 
 		::-webkit-input-placeholder {
@@ -225,6 +277,56 @@ const El = styled.div`
 		:-moz-placeholder {
 			color: var(--text-color-medium);
 		}
+	}
+
+	${(props) =>
+		props.usePlaceholder &&
+		css`
+			label {
+				width: 0;
+				height: 0;
+				position: absolute;
+				left: -9999px;
+				overflow: hidden;
+			}
+
+			${(props) =>
+				props.required &&
+				css`
+					:after {
+						display: inline-block;
+						padding: var(--spacing-quarter);
+						content: "*";
+						display: block;
+						position: absolute;
+						top: 0;
+						right: var(--spacing-quarter);
+						font-family: var(--regular-font);
+						font-size: 20px;
+						color: var(--status--information);
+					}
+				`}
+		`}
+
+	${(props) =>
+		props.size == "small" &&
+		css`
+			label {
+				font-size: var(--text-size-9);
+				line-height: calc(var(--sizing-half) + var(--sizing-quarter));
+			}
+			select {
+				height: calc(var(--sizing-half) + var(--sizing-quarter));
+				line-height: normal;
+				padding: 0 var(--spacing-full) 0 var(--spacing-full);
+				font-size: var(--text-size-9);
+				background-position-x: 99%;
+				background-position-y: 5px;
+			}
+		`}
+
+	.specify {
+		padding-top: var(--spacing-full);
 	}
 
 	${(props) =>

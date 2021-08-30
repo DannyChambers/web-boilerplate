@@ -31,13 +31,13 @@ const El = styled.form`
 	fieldset {
 		border: 1px solid var(--border-color-1);
 		border-radius: var(--radius-half);
-		padding: var(--spacing-full) var(--spacing-double);
+		padding: var(--spacing-double);
 		margin-bottom: var(--spacing-double);
 		position: relative;
 
 		legend {
 			padding: 0 var(--spacing-half);
-			font-family: var(--body-font);
+			font-family: var(--regular-font);
 			font-size: var(--text-size-5);
 			line-height: var(--line-height-5);
 			position: absolute;
@@ -49,7 +49,7 @@ const El = styled.form`
 
 	@media (min-width: ${breakpoints.breakpoint3}px) {
 		fieldset {
-			padding: var(--spacing-double) var(--spacing-triple);
+			padding: var(--spacing-triple);
 
 			legend {
 				padding: 0 var(--spacing-full);

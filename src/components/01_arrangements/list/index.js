@@ -40,7 +40,7 @@ const El = styled.div`
 	li {
 		display: block;
 		position: relative;
-		font-family: var(--body-font);
+		font-family: var(--regular-font);
 		font-size: var(--text-size-7);
 		line-height: var(--text-size-7);
 		margin-bottom: var(--spacing-threequarters);
@@ -125,6 +125,12 @@ const El = styled.div`
 					/* font-size: var(--text-size-8); */
 				}
 			}
+		`}
+
+    ${(props) =>
+		props.columns &&
+		css`
+			column-count: ${props.columns};
 		`}
 `;
 

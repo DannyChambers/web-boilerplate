@@ -14,7 +14,7 @@ const Paragraph = (props) => {
 };
 
 const El = styled.p`
-	font-family: var(--body-font);
+	font-family: var(--regular-font);
 	padding-bottom: var(--spacing-full);
 	text-align: ${(props) => props.alignment};
 	max-width: 75ch; //Max 75 characters for optimum readability

@@ -15,11 +15,16 @@ const Layout = (props) => {
 };
 
 const El = styled.div`
-	display: grid;
-	gap: 0 var(--spacing-full);
 	max-width: var(--maximum-page-width);
 	margin: 0 auto;
-	grid-template-columns: 1fr;
+
+	${(props) =>
+		props.grid &&
+		css`
+			display: grid;
+			gap: 0 var(--spacing-full);
+			grid-template-columns: 1fr;
+		`}
 
 	.column {
 		padding-bottom: var(--spacing-full);
@@ -27,7 +32,6 @@ const El = styled.div`
 
 	@media (min-width: ${breakpoints.breakpoint3}px) {
 		gap: 0 var(--spacing-double);
-		grid-auto-rows: 1fr;
 
 		${(props) =>
 			props.grid === "50_50" &&

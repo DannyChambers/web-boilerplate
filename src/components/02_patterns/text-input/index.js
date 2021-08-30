@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 
-import { generateID } from "../../../utilities";
+import { generateID } from "../../05_utilities";
 
 import Paragraph from "../../01_arrangements/paragraph";
+import Icon from "../../02_patterns/icon";
 
 const TextInput = (props) => {
 	const [fieldMessage, setFieldMessage] = useState(null);
@@ -30,24 +31,39 @@ const TextInput = (props) => {
 	}
 
 	const handleChange = (obj) => {
-		if (props.onChange) {
-			props.onChange(obj);
+		if (props.required || props.validPattern) {
+			if (
+				(props.required && !obj.value) ||
+				(props.validPattern === "email" &&
+					!/^\S+@\S+\.\S+$/.test(obj.value)) ||
+				(props.validPattern === "phone" &&
+					!/^[\d\(\)\-+]+$/.test(obj.value))
+			) {
+				obj.valid = false;
+				props.change(obj);
+			} else {
+				obj.valid = true;
+				props.change(obj);
+			}
+		} else {
+			obj.valid = true;
+			props.change(obj);
 		}
 	};
 
 	const handleFocus = (obj) => {
-		if (props.onFocus) {
-			props.onFocus(obj);
+		if (props.focus) {
+			props.focus(obj);
 		}
 	};
 
-	const handleBlur = (val) => {
-		if (props.required && !val) {
+	const handleBlur = (obj) => {
+		if (props.required && !obj.value) {
 			setFieldMessage("This field is required");
 			setValid(false);
 		} else if (
 			props.validPattern === "email" &&
-			!/^\S+@\S+\.\S+$/.test(val)
+			!/^\S+@\S+\.\S+$/.test(obj.value)
 		) {
 			setFieldMessage(
 				"Please ensure you have provided a valid email address."
@@ -55,7 +71,7 @@ const TextInput = (props) => {
 			setValid(false);
 		} else if (
 			props.validPattern === "phone" &&
-			!/^[\d\(\)\-+]+$/.test(val)
+			!/^[\d\(\)\-+]+$/.test(obj.value)
 		) {
 			//Numbers and phone number symbols
 			setFieldMessage(
@@ -67,8 +83,8 @@ const TextInput = (props) => {
 			setValid(true);
 		}
 
-		if (props.onBlur) {
-			props.onBlur(val);
+		if (props.blur) {
+			props.blur(obj);
 		}
 	};
 
@@ -81,6 +97,12 @@ const TextInput = (props) => {
 		>
 			<label htmlFor={ID}>{props.label}</label>
 
+			{(() => {
+				if (props.icon) {
+					return <Icon graphic={props.icon} />;
+				}
+			})()}
+
 			<input
 				type='text'
 				id={ID}
@@ -89,20 +111,32 @@ const TextInput = (props) => {
 				value={props.value}
 				disabled={props.disabled}
 				onChange={(e) => {
-					handleChange(e.target.value);
+					handleChange({
+						name: props.name,
+						value: e.target.value,
+						valid: valid,
+					});
 				}}
 				onFocus={(e) => {
-					handleFocus(e.target.value);
+					handleFocus({
+						name: props.name,
+						value: e.target.value,
+						valid: valid,
+					});
 				}}
 				onBlur={(e) => {
-					handleBlur(e.target.value);
+					handleBlur({
+						name: props.name,
+						value: e.target.value,
+						valid: valid,
+					});
 				}}
 			/>
 			{props.children}
 
 			{(() => {
 				if (fieldMessage) {
-					return <Paragraph level='3'>{fieldMessage}</Paragraph>;
+					return <Paragraph level='2'>{fieldMessage}</Paragraph>;
 				}
 			})()}
 		</El>
@@ -114,8 +148,8 @@ const El = styled.div`
 
 	label {
 		display: block;
-		font-family: var(--body-font);
-		font-size: var(--text-size-6);
+		font-family: var(--regular-font);
+		font-size: var(--text-size-8);
 		line-height: var(--sizing-full);
 		cursor: pointer;
 		max-width: 75ch; //Max 75 characters for optimum readability
@@ -142,7 +176,7 @@ const El = styled.div`
 						position: absolute;
 						top: 0;
 						right: var(--spacing-quarter);
-						font-family: var(--body-font);
+						font-family: var(--regular-font);
 						font-size: 20px;
 						color: var(--status--information);
 					}
@@ -157,7 +191,7 @@ const El = styled.div`
 					display: inline-block;
 					padding: var(--spacing-quarter);
 					content: "*";
-					font-family: var(--body-font);
+					font-family: var(--regular-font);
 					font-size: 20px;
 					color: var(--status--information);
 				}
@@ -168,19 +202,18 @@ const El = styled.div`
 		display: block;
 		width: 100%;
 		border: 1px solid var(--border-color-1);
-		border-radius: var(--radius-half);
 		line-height: var(--sizing-full);
 		padding: 0 var(--spacing-double) 0 var(--spacing-full);
-		font-family: var(--body-font);
-		font-size: var(--text-size-6);
+		font-family: var(--regular-font);
+		font-size: var(--text-size-8);
 
 		&:hover {
-			border-color: var(--cta-primary);
+			border-color: var(---border-color-2);
 		}
 
 		&:focus {
-			outline: var(--cta-primary--active);
-			border-color: var(--cta-primary--active);
+			outline: var(---border-color-1);
+			border-color: var(---border-color-1);
 		}
 
 		::-webkit-input-placeholder {
@@ -198,6 +231,21 @@ const El = styled.div`
 	}
 
 	${(props) =>
+		props.icon &&
+		css`
+			.icon {
+				position: absolute;
+				top: var(--spacing-half);
+				left: var(--spacing-quarter);
+				transform: scale(0.6);
+			}
+
+			input {
+				padding-left: calc(var(--spacing-double) + var(--spacing-half));
+			}
+		`}
+
+	${(props) =>
 		props.disabled &&
 		css`
 			label {
@@ -207,6 +255,22 @@ const El = styled.div`
 			input {
 				cursor: not-allowed;
 				pointer-events: none;
+			}
+		`}
+
+    ${(props) =>
+		props.size == "small" &&
+		css`
+			label {
+				font-size: var(--text-size-9);
+				line-height: calc(var(--sizing-half) + var(--sizing-quarter));
+			}
+			input {
+				height: calc(var(--sizing-half) + var(--sizing-quarter));
+				line-height: calc(var(--sizing-half) + var(--sizing-quarter));
+				padding: 0 calc(var(--spacing-full) + var(--spacing-half)) 0
+					var(--spacing-full);
+				font-size: var(--text-size-8);
 			}
 		`}
 

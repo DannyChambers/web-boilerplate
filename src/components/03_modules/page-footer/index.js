@@ -16,52 +16,43 @@ const PageFooter = (props) => {
 			data-testid='123abc'
 			className={`page-footer ${props.classes}`}
 		>
-			<div className='page-footer_inner'>
-				<Layout grid='33_33_33'>
-					<div className='column'>
-						<Logo size='medium' />
-					</div>
-					<div className='column'>
-						{" "}
-						<Heading level='2' appearance='4'>
-							Column one
-						</Heading>
-						<List level='1'>
-							<li graphic='magic-wand'>
-								<Link href='#'>List item one</Link>
-							</li>
-							<li graphic='paint-roller'>
-								<Link href='#'>List item two</Link>
-							</li>
-							<li graphic='pencil-ruler'>
-								<Link href='#'>List item three</Link>
-							</li>
-							<li graphic='umbrella'>
-								<Link href='#'>List item four</Link>
-							</li>
-						</List>
-					</div>
-					<div className='column'>
-						<Heading level='2' appearance='4'>
-							Column two
-						</Heading>
-						<List level='1'>
-							<li graphic='magic-wand'>
-								<Link href='#'>List item one</Link>
-							</li>
-							<li graphic='paint-roller'>
-								<Link href='#'>List item two</Link>
-							</li>
-							<li graphic='pencil-ruler'>
-								<Link href='#'>List item three</Link>
-							</li>
-							<li graphic='umbrella'>
-								<Link href='#'>List item four</Link>
-							</li>
-						</List>
-					</div>
-				</Layout>
-			</div>
+			<Layout grid='50_50'>
+				<div className='column'>
+					<Logo size='medium' />
+				</div>
+				<div className='column'>
+					{" "}
+					<Heading level='2' appearance='4'>
+						Column one
+					</Heading>
+					<List level='1' columns='2'>
+						<li graphic='magic-wand'>
+							<Link href='#'>List item one</Link>
+						</li>
+						<li graphic='paint-roller'>
+							<Link href='#'>List item two</Link>
+						</li>
+						<li graphic='pencil-ruler'>
+							<Link href='#'>List item three</Link>
+						</li>
+						<li graphic='umbrella'>
+							<Link href='#'>List item four</Link>
+						</li>
+						<li graphic='magic-wand'>
+							<Link href='#'>List item one</Link>
+						</li>
+						<li graphic='paint-roller'>
+							<Link href='#'>List item two</Link>
+						</li>
+						<li graphic='pencil-ruler'>
+							<Link href='#'>List item three</Link>
+						</li>
+						<li graphic='umbrella'>
+							<Link href='#'>List item four</Link>
+						</li>
+					</List>
+				</div>
+			</Layout>
 		</El>
 	);
 };
@@ -79,15 +70,6 @@ const El = styled.footer`
 	@media (min-width: ${breakpoints.breakpoint4}px) {
 		padding: var(--spacing-triple) var(--spacing-full)
 			var(--spacing-quadruple) var(--spacing-full);
-		min-height: 40vh;
-		display: table;
-		width: 100%;
-
-		.page-footer_inner {
-			height: 100%;
-			display: table-cell;
-			vertical-align: middle;
-		}
 	}
 `;
 

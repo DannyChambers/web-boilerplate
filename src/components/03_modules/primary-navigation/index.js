@@ -48,15 +48,15 @@ const PrimaryNavigation = (props) => {
 				/>
 				<List level='1'>
 					<li>
-						<a href='#'>
+						<a href='/'>
 							<Icon graphic='magic-wand' />
-							Menu item
+							Home page
 						</a>
 					</li>
 					<li>
-						<a href='#'>
+						<a href='/form-page/'>
 							<Icon graphic='paint-roller' />
-							Menu item
+							Form page
 						</a>
 					</li>
 					<li>

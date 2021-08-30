@@ -17,7 +17,7 @@ const Heading = (props) => {
 };
 
 const El = styled.div`
-	font-family: var(--heading-font);
+	font-family: var(--bold-font);
 	padding-bottom: var(--spacing-full);
 	text-align: ${(props) => props.alignment};
 	max-width: 75ch; //Max 75 characters for optimum readability

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 
-import { generateID } from "../../../utilities";
+import { generateID } from "../../05_utilities";
 
 import Paragraph from "../../01_arrangements/paragraph";
 
@@ -30,16 +30,26 @@ const TextareaInput = (props) => {
 		placeholder = props.label;
 	}
 
-	const handleChange = (val) => {
-		setCharacterCount(props.characterLimit - val.length);
-		if (props.onChange) {
-			props.onChange(val);
+	const handleChange = (obj) => {
+		setCharacterCount(props.characterLimit - obj.value.length);
+
+		if (props.required || props.validPattern) {
+			if (props.required && !obj.value) {
+				obj.valid = false;
+				props.change(obj);
+			} else {
+				obj.valid = true;
+				props.change(obj);
+			}
+		} else {
+			obj.valid = true;
+			props.change(obj);
 		}
 	};
 
 	const handleFocus = (val) => {
-		if (props.onFocus) {
-			props.onFocus(val);
+		if (props.focus) {
+			props.focus(val);
 		}
 	};
 
@@ -52,8 +62,8 @@ const TextareaInput = (props) => {
 			setFieldMessage(props.fieldMessage);
 			setValid(true);
 		}
-		if (props.onBlur) {
-			props.onBlur(val);
+		if (props.blur) {
+			props.blur(val);
 		}
 	};
 
@@ -67,7 +77,7 @@ const TextareaInput = (props) => {
 			<label htmlFor={ID}>{props.label}</label>
 
 			<textarea
-				maxlength={props.characterLimit}
+				maxLength={props.characterLimit}
 				rows='6'
 				id={ID}
 				placeholder={placeholder}
@@ -75,13 +85,25 @@ const TextareaInput = (props) => {
 				value={props.value}
 				disabled={props.disabled}
 				onChange={(e) => {
-					handleChange(e.target.value);
+					handleChange({
+						name: props.name,
+						value: e.target.value,
+						valid: valid,
+					});
 				}}
 				onFocus={(e) => {
-					handleFocus(e.target.value);
+					handleFocus({
+						name: props.name,
+						value: e.target.value,
+						valid: valid,
+					});
 				}}
 				onBlur={(e) => {
-					handleBlur(e.target.value);
+					handleBlur({
+						name: props.name,
+						value: e.target.value,
+						valid: valid,
+					});
 				}}
 			></textarea>
 			{props.children}
@@ -112,8 +134,8 @@ const El = styled.div`
 
 	label {
 		display: block;
-		font-family: var(--body-font);
-		font-size: var(--text-size-6);
+		font-family: var(--regular-font);
+		font-size: var(--text-size-8);
 		line-height: var(--sizing-full);
 		cursor: pointer;
 		max-width: 75ch; //Max 75 characters for optimum readability
@@ -141,7 +163,7 @@ const El = styled.div`
 						position: absolute;
 						top: 0;
 						right: var(--spacing-quarter);
-						font-family: var(--body-font);
+						font-family: var(--regular-font);
 						font-size: 20px;
 						color: var(--status--information);
 					}
@@ -156,7 +178,7 @@ const El = styled.div`
 					display: inline-block;
 					padding: var(--spacing-quarter);
 					content: "*";
-					font-family: var(--body-font);
+					font-family: var(--regular-font);
 					font-size: 20px;
 					color: var(--status--information);
 				}
@@ -168,20 +190,19 @@ const El = styled.div`
 		display: block;
 		width: 100%;
 		border: 1px solid var(--border-color-1);
-		border-radius: var(--radius-half);
 		padding: var(--spacing-full) var(--spacing-double) var(--spacing-full)
 			var(--spacing-full);
-		font-family: var(--body-font);
-		font-size: var(--text-size-6);
+		font-family: var(--regular-font);
+		font-size: var(--text-size-8);
 		line-height: var(--sizing-half);
 
 		&:hover {
-			border-color: var(--cta-primary);
+			border-color: var(--border-color-2);
 		}
 
 		&:focus {
-			outline: var(--cta-primary--active);
-			border-color: var(--cta-primary--active);
+			outline: var(--border-color-2);
+			border-color: var(--border-color-2);
 		}
 
 		::-webkit-input-placeholder {
