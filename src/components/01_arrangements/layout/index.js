@@ -30,7 +30,7 @@ const El = styled.div`
 		padding-bottom: var(--spacing-full);
 	}
 
-	@media (min-width: ${breakpoints.breakpoint3}px) {
+	@media (min-width: ${breakpoints.breakpoint4}px) {
 		gap: 0 var(--spacing-double);
 
 		${(props) =>

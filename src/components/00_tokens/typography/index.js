@@ -26,42 +26,42 @@ const Typography = css`
 		font-size: 62.5%;
 		//Font sizes --
 		--text-size-1: 4.2rem;
-		--line-height-1: 1.4em;
+		--line-height-1: calc(1em + 0.25);
 		--text-size-2: 3.6rem;
-		--line-height-2: 1.4em;
+		--line-height-2: calc(1em + 0.25);
 		--text-size-3: 2.8rem;
-		--line-height-3: 1.4em;
+		--line-height-3: calc(1em + 0.25);
 		--text-size-4: 2.4rem;
-		--line-height-4: 1.4em;
+		--line-height-4: calc(1em + 0.25);
 		--text-size-5: 2rem;
-		--line-height-5: 1.4em;
+		--line-height-5: calc(1em + 0.25);
 		--text-size-6: 1.8rem;
-		--line-height-6: 1.4em;
+		--line-height-6: calc(1em + 0.25);
 		--text-size-7: 1.6rem;
-		--line-height-7: 1.4em;
+		--line-height-7: calc(1em + 0.25);
 		--text-size-8: 1.4rem;
-		--line-height-8: 1.4em;
+		--line-height-8: calc(1em + 0.25);
 	}
 
-	@media (min-width: ${breakpoints.breakpoint3}px) {
+	@media (min-width: ${breakpoints.breakpoint4}px) {
 		:root {
 			//Font sizes --
 			/* --text-size-1: 4.2rem;
-			--line-height-1: 1.4em;
-			--text-size-2: 3.6rem;
-			--line-height-2: 1.4em;
-			--text-size-3: 2.8rem;
-			--line-height-3: 1.4em;
-			--text-size-4: 2.4rem;
-			--line-height-4: 1.4em;
-			--text-size-5: 2rem;
-			--line-height-5: 1.4em;
-			--text-size-6: 1.8rem;
-			--line-height-6: 1.4em;
-			--text-size-7: 1.6rem;
-			--line-height-7: 1.4em;
-			--text-size-8: 1.4rem;
-			--line-height-8: 1.4em; */
+		--line-height-1: calc(1em + 0.25);
+		--text-size-2: 3.6rem;
+		--line-height-2: calc(1em + 0.25);
+		--text-size-3: 2.8rem;
+		--line-height-3: calc(1em + 0.25);
+		--text-size-4: 2.4rem;
+		--line-height-4: calc(1em + 0.25);
+		--text-size-5: 2rem;
+		--line-height-5: calc(1em + 0.25);
+		--text-size-6: 1.8rem;
+		--line-height-6: calc(1em + 0.25);
+		--text-size-7: 1.6rem;
+		--line-height-7: calc(1em + 0.25);
+		--text-size-8: 1.4rem;
+		--line-height-8: calc(1em + 0.25); */
 		}
 	}
 `;

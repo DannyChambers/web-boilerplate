@@ -47,7 +47,7 @@ const El = styled.form`
 		}
 	}
 
-	@media (min-width: ${breakpoints.breakpoint3}px) {
+	@media (min-width: ${breakpoints.breakpoint4}px) {
 		fieldset {
 			padding: var(--spacing-triple);
 
