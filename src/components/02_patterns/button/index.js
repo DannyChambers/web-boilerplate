@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
 import Icon from "../../02_patterns/icon/";
 
 const Button = (props) => {
+	const [pressed, setPressed] = useState(false);
 	const tag = props.href ? "a" : "button";
+
+	const handleClick = () => {
+		pressed ? setPressed(false) : setPressed(true);
+
+		if (props.click) {
+			props.click();
+		}
+	};
 
 	return (
 		<El
@@ -12,6 +21,9 @@ const Button = (props) => {
 			{...props}
 			data-testid='123abc'
 			className={`button ${props.classes}`}
+			{...(tag === "a" ? { href: props.href } : {})}
+			{...(tag === "button" ? { "aria-pressed": pressed } : {})}
+			onClick={handleClick}
 		>
 			{(() => {
 				if (props.icon && props.size === "small") {
@@ -47,7 +59,8 @@ const El = styled.div`
 		color 0.4s ease-in-out;
 
 	&:hover,
-	&:active {
+	&:active,
+	&[aria-pressed="true"] {
 		background: var(--cta-primary--active);
 		border-color: var(--cta-primary--active);
 	}
