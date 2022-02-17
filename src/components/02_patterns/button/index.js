@@ -45,6 +45,7 @@ const El = styled.div`
 	max-width: var(--sizing-octuple);
 	font-size: var(--text-size-7);
 	height: var(--sizing-full);
+    line-height: var(--sizing-threequarters);
 	font-family: var(--bold-font);
 	text-transform: uppercase;
 	padding: 0 var(--spacing-double);
@@ -100,14 +101,9 @@ const El = styled.div`
     ${(props) =>
 		props.icon &&
 		css`
-			position: relative;
-			padding-left: calc(var(--spacing-double) + var(--spacing-half));
+        padding-right: var(--spacing-triple);
 
 			.icon {
-				position: absolute;
-				top: var(--spacing-quarter);
-				/* top: 0; */
-				left: var(--spacing-half);
 
 				svg path {
 					fill: var(--text-color-light);
@@ -120,10 +116,9 @@ const El = styled.div`
 		props.icon &&
 		props.size === "medium" &&
 		css`
-			padding-left: calc(var(--spacing-triple) + var(--spacing-quarter));
 
 			.icon {
-				left: calc(var(--spacing-half) + var(--spacing-eighth));
+
 			}
 		`}
 
@@ -131,11 +126,9 @@ const El = styled.div`
 		props.icon &&
 		props.size === "large" &&
 		css`
-			padding-left: calc(var(--spacing-quadruple) + var(--spacing-half));
 
 			.icon {
-				top: calc(var(--spacing-quarter) + var(--spacing-eighth));
-				left: var(--spacing-full);
+
 			}
 		`}
 
