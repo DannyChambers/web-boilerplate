@@ -18,6 +18,8 @@ const El = styled.p`
 	padding-bottom: var(--spacing-full);
 	text-align: ${(props) => props.alignment};
 	max-width: 75ch; //Max 75 characters for optimum readability
+    font-size: var(--text-size-7);
+	line-height: var(--line-height-7);
 
 	${(props) =>
 		props.alignment === "center" &&
@@ -37,13 +39,6 @@ const El = styled.p`
 			font-size: var(--text-size-6);
 			line-height: var(--line-height-6);
 			padding-bottom: var(--spacing-double);
-		`}
-
-	${(props) =>
-		props.level === "2" &&
-		css`
-			font-size: var(--text-size-7);
-			line-height: var(--line-height-7);
 		`}
 
 	${(props) =>

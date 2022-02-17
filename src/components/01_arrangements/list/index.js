@@ -42,7 +42,7 @@ const El = styled.div`
 		position: relative;
 		font-family: var(--regular-font);
 		font-size: var(--text-size-7);
-		line-height: var(--text-size-7);
+		line-height: var(--line-height-7);
 		margin-bottom: var(--spacing-threequarters);
 
 		&:before {
@@ -60,7 +60,7 @@ const El = styled.div`
 			props.level === "1" &&
 			css`
 				font-size: var(--text-size-6);
-				line-height: var(--text-size-6);
+				line-height: var(--line-height-6);
 
 				&:before {
 					padding: 5px;
@@ -72,7 +72,7 @@ const El = styled.div`
 			props.level === "3" &&
 			css`
 				font-size: var(--text-size-8);
-				line-height: var(--text-size-8);
+				line-height: var(--line-height-8);
 
 				&:before {
 					padding: 3px;
