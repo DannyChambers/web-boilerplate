@@ -33,7 +33,7 @@ const PrimaryNavigation = (props) => {
 				iconOnly
 				text='Open menu'
 				classes='primary-navigation_trigger'
-				onClick={triggerMenu}
+				click={triggerMenu}
 			/>
 
 			<div className='flyout'>
@@ -44,7 +44,7 @@ const PrimaryNavigation = (props) => {
 					iconOnly
 					text='Close menu'
 					classes='primary-navigation_close'
-					onClick={triggerMenu}
+					click={triggerMenu}
 				/>
 				<List level='1'>
 					<li>
